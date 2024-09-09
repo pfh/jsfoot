@@ -1,0 +1,10 @@
+project:
+    title: "jsfoot"
+    execute-dir: "project"
+    output-dir: "docs"
+
+format:
+    html:
+        self-contained: true
+
+

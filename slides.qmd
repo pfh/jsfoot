@@ -1,0 +1,37 @@
+---
+title: "HTML, Javascript, SVG, D3: a foot in the door"
+author: "Paul Harrison"
+format: 
+    revealjs:
+        smaller: true
+        margin: 0.1
+        #css: style.css
+        embed-resources: true
+---
+
+## What if?
+
+##
+
+Ok, let's go make a web page.
+
+
+## Javascript got better
+
+Javascript has a lot of history, including... mistakes.
+
+However, used tastefully, it is now quite a nice language.
+
+
+## Modules
+
+Packaging code used to be done in an ad-hoc way.
+
+One of the new things in Javascript is a proper module system.
+
+**BUT** you need a web server to use it.
+
+So:
+
+* Javascript packages will often explain how to use their package the new way.
+* At least initially, we'll use the old way.

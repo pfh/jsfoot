@@ -1,0 +1,70 @@
+---
+title: "Workshop: HTML, Javascript, SVG, D3: a foot in the door"
+---
+
+[Home page](.)
+
+```{r}
+```
+
+## HTML
+
+Open a text editor and create a file called `hello.html` and type the following:
+
+```html
+<!doctype html>
+
+<meta charset="utf-8">
+
+<title>My page</title>
+
+<p>Hello.</p>
+```
+
+In your web browser, go to the `File / Open file...` in the menus and open the file. Or enter the URL `file:///`, and navigate to your file.
+
+What's all this?
+
+* `<!doctype html>` tells the browser that this page is written in HTML5, the latest standard, and that it doesn't need to emulate any quirks of older browsers.
+
+* `<meta charset="utf-8">` tells the browser this page is using UTF-8 encoded unicode text. UTF-8 is now used almost universally for text, but it's good to tell the browser so it doesn't have to guess (possibly wrongly).
+
+* `<title>...</title>` sets the title of the page, visible in your tab bar.
+
+* `<p>...</p>` denotes a paragraph of text. There are many different tags like this to tell the browser the meaning of text in the page (paragraph, heading, list, table, division, etc etc), and so how to display it.
+
+## Let's get developing
+
+In your browser, find the web developer tools.
+
+Chrome: 
+
+* `[ ⋮ ] / More Tools / Developer Tools`
+
+Firefox: 
+
+* `[ ☰ ] / More Tools / Web Developer Tools`
+
+Safari:
+
+* Go to `Safari / Settings / Advanced` and check `[✓] Show features for web developers`.
+* Go to `Developer / Show Web Inspector`.
+
+Notice the document consists of text within tags within tags. It's a "tree".
+
+We left out some things, but the browser has filled them in, such as `<html>...</html>`, `<body>...</body>`, `<head>...</head>`.
+
+
+## SVG
+
+
+## Javascript
+
+
+
+## D3
+
+
+
+## Share with the world
+

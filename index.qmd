@@ -1,0 +1,20 @@
+---
+title: "HTML, Javascript, SVG, D3: a foot in the door"
+---
+
+This is a 2 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
+
+## Workshop material
+
+* [Slides](slides.html)
+* [Workshop](workshop.html)
+
+## Useful resources
+
+[The Modern Javascript Tutorial](https://javascript.info/)
+
+[D3 in Depth book](https://www.d3indepth.com/)
+
+[D3 API](https://d3js.org/getting-started)
+
+[Mozilla Developer Network](https://developer.mozilla.org/en-US/)
