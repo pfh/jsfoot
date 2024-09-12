@@ -1,0 +1,55 @@
+<!doctype html>
+
+<meta charset="utf-8">
+
+<title>Spatial sequencing explorer</title>
+
+<h1>Spatial sequencing explorer</h1>
+
+<svg width="600" height="600" id="plot1"></svg>
+<svg width="600" height="600" id="plot2">
+    <image href="tissue.png" width=600 height=599>
+</svg>
+
+<!--
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+-->
+
+<script src="d3.js"></script>
+
+<script src="spots.js"></script>
+
+<script>
+
+let plot1 = d3.select("#plot1");
+let plot2 = d3.select("#plot2");
+let mousePos = [0,0];
+
+function update() {
+    spots.forEach(d => {
+        d.highlight = (d.umapX-mousePos[0])**2 + (d.umapY-mousePos[1])**2 <= 50**2; 
+    });
+    
+    plot1.selectAll("circle")
+        .data(spots)
+        .join('circle')
+        .attr('cx', d => d.umapX)
+        .attr('cy', d => d.umapY)
+        .attr('r', 2)
+        .attr('fill', d => d.highlight ? '#ff0000' : '#0000ff');
+    
+    plot2.selectAll("circle")
+        .data(spots)
+        .join('circle')
+        .attr('cx', d => d.imageX)
+        .attr('cy', d => d.imageY)
+        .attr('r', 2)
+        .attr('fill', d => d.highlight ? '#ff0000' : '#0000ff44');
+}
+
+plot1.on("mousemove", (event) => {
+    mousePos = d3.pointer(event);
+    update();
+})
+
+</script>

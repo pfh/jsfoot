@@ -55,16 +55,42 @@ Notice the document consists of text within tags within tags. It's a "tree".
 We left out some things, but the browser has filled them in, such as `<html>...</html>`, `<body>...</body>`, `<head>...</head>`.
 
 
+### Pause
+
+Make sure you try all this yourself.
+
+
 ## SVG
 
 
 ## Javascript
 
+### Modify the point
+
+### Press a button
+
 
 
 ## D3
 
+### Load data
+
+### Scatterplot
+
+### Mouse interaction
+
+### Exercise: add a second plot
 
 
 ## Share with the world
+
+
+
+## Further refinements
+
+### Scales
+
+### Axes
+
+
 
