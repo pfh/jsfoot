@@ -11,21 +11,52 @@ format:
 
 ## What if?
 
+## The big picture
+
+We will be using:
+
+*HTML* to create a web-page.
+
+*SVG* to create pictures in the web-page.
+
+*Javascript* to run code in the web-page.
+
+*D3* a module that helps turn data into pictures.
+
+Note you should also learn:
+
+*styles* and *CSS* to format and lay out your web-page.
+
+
+## HTML
+
+
 ##
 
 Ok, let's go make a web page.
+
+
+## SVG
+
+
+## Javascript and D3
+
+
+
 
 
 ## Javascript got better
 
 Javascript has a lot of history, including... mistakes.
 
+* Complex rules for equality with `==`.
+
 However, used tastefully, it is now quite a nice language.
 
 
 ## Modules
 
-Packaging code used to be done in an ad-hoc way (UMD, etc).
+Packaging code used to be done in an ad-hoc way ("UMD", "AMD", "CJS").
 
 One of the new things in Javascript is a proper module system (ESM).
 

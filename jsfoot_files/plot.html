@@ -20,6 +20,7 @@
 <script src="spots.js"></script>
 
 <script>
+"use strict";
 
 let plot1 = d3.select("#plot1");
 let plot2 = d3.select("#plot2");
@@ -27,7 +28,7 @@ let mousePos = [0,0];
 
 function update() {
     spots.forEach(d => {
-        d.highlight = (d.umapX-mousePos[0])**2 + (d.umapY-mousePos[1])**2 <= 50**2; 
+        d.highlight = (d.umapX-mousePos[0])**2 + (d.umapY-mousePos[1])**2 <= 30**2; 
     });
     
     plot1.selectAll("circle")
@@ -51,5 +52,7 @@ plot1.on("mousemove", (event) => {
     mousePos = d3.pointer(event);
     update();
 })
+
+update();
 
 </script>
