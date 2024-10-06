@@ -1,5 +1,9 @@
 ---
 title: "Workshop: HTML, Javascript, SVG, D3: a foot in the door"
+format:
+    html:
+        toc: true
+        css: style.css
 ---
 
 [Home page](.)

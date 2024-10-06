@@ -1,11 +1,12 @@
 ---
-title: "HTML, Javascript, SVG, D3: a foot in the door"
+title: "HTML, JavaScript, SVG, D3: a foot in the door"
 author: "Paul Harrison"
 format: 
     revealjs:
         smaller: true
         margin: 0.1
-        #css: style.css
+        css: "slides-style.css"
+        code-line-numbers: false
         embed-resources: true
 ---
 
@@ -15,21 +16,23 @@ format:
 
 We will be using:
 
-*HTML* to create a web-page.
+**HTML** to create a web-page.
 
-*SVG* to create pictures in the web-page.
+**SVG** to create pictures in the web-page.
 
-*Javascript* to run code in the web-page.
+**JavaScript** to run code in the web-page.
 
-*D3* a module that helps turn data into pictures.
+**D3** a module that helps turn data into pictures.
 
+\
 Note you should also learn:
 
-*styles* and *CSS* to format and lay out your web-page.
+**CSS** to format and lay out your web-page.
 
 
 ## HTML
 
+Once we start using JavaScript, we can access the structure of our HTML using the Document Object Model (DOM).
 
 ##
 
@@ -39,7 +42,7 @@ Ok, let's go make a web page.
 ## SVG
 
 
-## Javascript and D3
+## JavaScript and D3
 
 
 
@@ -47,11 +50,16 @@ Ok, let's go make a web page.
 
 ## Javascript got better
 
-Javascript has a lot of history, including... mistakes.
+Javascript has a lot of history, including some mis-steps. Since we can't just go and break millions of websites, those mis-steps can't be erased.
 
-* Complex rules for equality with `==`.
+However we can use new features that avoid those mis-steps:
 
-However, used tastefully, it is now quite a nice language.
+* Put `"use strict";` at the top of scripts to enable strict mode.
+* `==` has complex rules for equality, so we now prefer `===`.
+* Variable declaration with `var` have some complex problems, so now we use `let`.
+* Writing modular code relied on an ad-hoc module system, but now there is a formal module system.
+
+Used tastefully, Javascript is now quite the nice language.
 
 
 ## Modules
@@ -66,3 +74,149 @@ So:
 
 * Javascript packages will often explain how to use their package the new way.
 * At least initially, we'll use the old way.
+
+
+## A Data Scientist dabbler's perspective
+
+There is a vast and ever changing range of modules, frameworks, and tooling for JavaScript, aimed at a variety of users with differing needs.
+
+**You are allowed to ignore all this.**
+
+\
+Packages like jQuery and D3 provide convenient wrappers around built-in features such as `document.querySelectorAll()`. They may save some typing, but you should also learn how to DOM manipulation yourself.
+
+* Today I'm using D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
+
+Other packages and tooling are aimed at large projects and teams, such as React and TypeScript.
+
+* Today, instead of using React/etc, I will write one big *idempotent* function called `update()`, and call it whenever needed.
+
+
+## Data in Javascript
+
+Numbers: `123`, `3.14`, `6.02e23`
+
+Strings: `"hello"`
+
+Arrays: `[0, 1, 2, "hello"]`
+
+Objects: `{x: 5, y: 10}`
+
+\
+By nesting data in arrays and objects, you can build complex data structures.
+
+This was so useful it became a standard data format called **JSON**.
+
+\
+Arrays and objects in Javascript are similar to `list`s and `dict`s in Python.
+
+
+## Example dataset
+
+[Raw data](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Brain_Sagittal_Anterior)
+
+[Seurat analysis vignette](https://satijalab.org/seurat/articles/spatial_vignette)
+
+Spatial RNA-Seq was performed on a section of mouse brain.
+
+Following the Seurat analysis, I wrote out some information:
+
+```r
+library(jsonlite)
+json_script <- paste0("let spots = ", toJSON(dataset, pretty=TRUE), ";")
+writeLines(json_script, "spots.js")
+```
+
+Examine the file `spots.js`.
+
+(I've written the data out this way so we can work without a web-server. [You can read CSV and JSON files directly if they are on a web-server.](https://d3js.org/d3-fetch))
+
+
+
+# Further things
+
+## D3 Scales
+
+My example data came on a convenient scale. Usually you will need a scale mapping from data to position or color.
+
+* Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.
+
+* Color scales available.
+
+* D3 has a helper to draw a scale axis and ticks.
+
+
+## Learn CSS and styles
+
+Styles can be applied to HTML tags:
+
+```html
+<p style="color: #ff8800">Hello</p>
+```
+<p style="color: #ff8800">Hello</p>
+
+\
+Styles can also be applied to the whole document using CSS.
+
+```css
+<style>
+p {
+    color: #ff8800;
+}
+</style>
+```
+
+\
+The CSS can also be put in an external file.
+```html
+<link href="style.css" rel="stylesheet" />
+```
+
+## Learn CSS and styles
+
+I especially recommend you learn to use the modern grid layout system.
+
+```html
+<div style="display: grid; grid-template-columns: 1fr auto;">
+  <div>Hello</div> 
+  <div>to</div> 
+  <div>grid</div>
+  <div>layout!</div>
+</div>
+```
+
+\
+<div style="display: grid; grid-template-columns: 1fr auto;">
+  <div>Hello</div> 
+  <div>to</div> 
+  <div>grid</div>
+  <div>layout!</div>
+</div>
+
+
+## Run a local web-server
+
+Running a web-server lets you:
+
+* Use modern ESM modules.
+* Access data files without the hack of turning them into Javascript scripts.
+
+There are many ways to run a local web server.
+
+\
+[Install python](https://www.python.org/downloads/) and use:
+
+```bash
+python3 -m http.server -b 127.0.0.1
+```
+
+\
+[Install node](/opt/homebrew/Cellar/node/22.5.1) and use:
+
+```bash
+npx http-server -a 127.0.0.1
+```
+
+\
+In both cases, I specify to listen to the address `127.0.0.1` which is accessable from your own computer but not the local network.
+

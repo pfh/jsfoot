@@ -6,7 +6,9 @@
 
 <h1>Spatial sequencing explorer</h1>
 
-<svg width="600" height="600" id="plot1"></svg>
+<svg width="600" height="600" id="plot1">
+</svg>
+
 <svg width="600" height="600" id="plot2">
     <image href="tissue.png" width=600 height=599>
 </svg>
@@ -27,9 +29,9 @@ let plot2 = d3.select("#plot2");
 let mousePos = [0,0];
 
 function update() {
-    spots.forEach(d => {
-        d.highlight = (d.umapX-mousePos[0])**2 + (d.umapY-mousePos[1])**2 <= 30**2; 
-    });
+    for(let spot of spots) {
+        spot.highlight = (spot.umapX-mousePos[0])**2 + (spot.umapY-mousePos[1])**2 <= 30**2; 
+    }
     
     plot1.selectAll("circle")
         .data(spots)
