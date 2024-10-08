@@ -1281,11 +1281,11 @@ Note you should also learn:</p>
 </ul>
 </section>
 <section id="a-data-scientist-dabblers-perspective" class="slide level2">
-<h2>A Data Scientist dabbler’s perspective</h2>
+<h2>A data scientist dabbler’s perspective</h2>
 <p>There is a vast and ever changing range of modules, frameworks, and tooling for JavaScript, aimed at a variety of users with differing needs.</p>
 <p><strong>You are allowed to ignore all this.</strong></p>
 <p><br>
-Packages like jQuery and D3 provide convenient wrappers around built-in features such as <code>document.querySelectorAll()</code>. They may save some typing, but you should also learn how to DOM manipulation yourself.</p>
+Packages like jQuery and D3 provide convenient wrappers around built-in features such as <code>document.querySelectorAll()</code>. They may save some typing, but you should also learn how to do DOM manipulation yourself.</p>
 <ul>
 <li>Today I’m using D3 mostly for its ability to synchronize (“join”) datasets with DOM objects.</li>
 </ul>
@@ -1293,6 +1293,15 @@ Packages like jQuery and D3 provide convenient wrappers around built-in features
 <ul>
 <li>Today, instead of using React/etc, I will write one big <em>idempotent</em> function called <code>update()</code>, and call it whenever needed.</li>
 </ul>
+</section>
+<section id="idempotent" class="slide level2">
+<h2>“Idempotent”</h2>
+<p>An “idempotent” operation has the same result no matter how many times you run it.</p>
+<p><br>
+We’ll write an idempotent <code>update()</code> function that updates the DOM to look the way we want it to.</p>
+<p>D3’s <code>join()</code> helps with this, it will only create DOM objects for our data if they don’t already exist.</p>
+<p><br>
+This saves us from writing separate code to first create the plot and then to later update it.</p>
 </section>
 <section id="data-in-javascript" class="slide level2">
 <h2>Data in Javascript</h2>
@@ -1325,40 +1334,46 @@ Arrays and objects in Javascript are similar to <code>list</code>s and <code>dic
 </section>
 <section id="d3-scales" class="slide level2">
 <h2>D3 Scales</h2>
-<p>My example data came on a convenient scale. Usually you will need a scale mapping from data to position or color.</p>
+<p>My example data already had a convenient scale.</p>
+<p>Usually you will need a D3 <a href="https://d3js.org/d3-scale">scale</a> mapping the data values to positions in a plot!</p>
+<p>Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> myScale <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>([<span class="dv">0</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> [<span class="dv">50</span><span class="op">,</span><span class="dv">450</span>])<span class="op">;</span></span>
+<span id="cb2-2"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">myScale</span>(<span class="fl">0.5</span>)<span class="op">;</span>        <span class="co">// 250</span></span>
+<span id="cb2-3"><a href aria-hidden="true" tabindex="-1"></a>myScale<span class="op">.</span><span class="fu">invert</span>(<span class="dv">250</span>)<span class="op">;</span> <span class="co">// 0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br>
+</p>
 <ul>
-<li><p>Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.</p></li>
-<li><p>Color scales available.</p></li>
-<li><p>D3 has a helper to draw a scale axis and ticks.</p></li>
+<li><p>Color scales are available.</p></li>
+<li><p>D3 can also help draw a scale <a href="https://d3js.org/d3-axis">axis</a>.</p></li>
 </ul>
 </section>
 <section id="learn-css-and-styles" class="slide level2">
 <h2>Learn CSS and styles</h2>
 <p>Styles can be applied to HTML tags:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;color: #ff8800&quot;</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;color: #ff8800&quot;</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p style="color: #ff8800">
 Hello
 </p>
 <p><br>
 Styles can also be applied to the whole document using CSS.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href aria-hidden="true" tabindex="-1"></a>&lt;style<span class="op">&gt;</span></span>
-<span id="cb3-2"><a href aria-hidden="true" tabindex="-1"></a>p {</span>
-<span id="cb3-3"><a href aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ff8800</span><span class="op">;</span></span>
-<span id="cb3-4"><a href aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-5"><a href aria-hidden="true" tabindex="-1"></a>&lt;/style<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href aria-hidden="true" tabindex="-1"></a>&lt;style<span class="op">&gt;</span></span>
+<span id="cb4-2"><a href aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb4-3"><a href aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ff8800</span><span class="op">;</span></span>
+<span id="cb4-4"><a href aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-5"><a href aria-hidden="true" tabindex="-1"></a>&lt;/style<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 The CSS can also be put in an external file.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="learn-css-and-styles-1" class="slide level2">
 <h2>Learn CSS and styles</h2>
 <p>I especially recommend you learn to use the modern grid layout system.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: grid; grid-template-columns: 1fr auto;&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb5-2"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
-<span id="cb5-3"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>to<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
-<span id="cb5-4"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>grid<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb5-5"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>layout!<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb5-6"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: grid; grid-template-columns: 1fr auto;&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
+<span id="cb6-3"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>to<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
+<span id="cb6-4"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>grid<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-5"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>layout!<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb6-6"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <br>
 
 <div style="display: grid; grid-template-columns: 1fr auto;">
@@ -1386,12 +1401,12 @@ layout!
 <p>There are many ways to run a local web server.</p>
 <p><br>
 <a href="https://www.python.org/downloads/">Install python</a> and use:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server <span class="at">-b</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server <span class="at">-b</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 <a href="./opt/homebrew/Cellar/node/22.5.1">Install node</a> and use:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server <span class="at">-a</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server <span class="at">-a</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
-In both cases, I specify to listen to the address <code>127.0.0.1</code> which is accessable from your own computer but not the local network.</p>
+In both cases, I specified to listen to the loopback IP address <code>127.0.0.1</code> which is accessable from your own computer but not the local network.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

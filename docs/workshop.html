@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Workshop: HTML, Javascript, SVG, D3: a foot in the door</title>
+<title>Workshop: HTML, Javascript, SVG, D3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3075,8 +3075,20 @@ vertical-align: -.125em;
 
 
 <style type="text/css">
-h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
-</style>
+h1,h2,h3,h4 { color: #008888; padding-top: 2em; }
+.tip {
+margin: 2em;
+padding: 1em;
+border: 1px solid black;
+border-radius: 5px;
+background: rgb(201, 249, 245);
+}
+.tip > :first-child {
+margin-top: 0;
+}
+.tip > :last-child {
+margin-bottom: 0;
+}</style>
 </head>
 
 <body>
@@ -3093,24 +3105,21 @@ h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
   <li><a href="#pause" id="toc-pause" class="nav-link" data-scroll-target="#pause">Pause</a></li>
   </ul></li>
   <li><a href="#svg" id="toc-svg" class="nav-link" data-scroll-target="#svg">SVG</a></li>
-  <li><a href="#javascript" id="toc-javascript" class="nav-link" data-scroll-target="#javascript">Javascript</a>
-  <ul class="collapse">
-  <li><a href="#modify-the-point" id="toc-modify-the-point" class="nav-link" data-scroll-target="#modify-the-point">Modify the point</a></li>
-  <li><a href="#press-a-button" id="toc-press-a-button" class="nav-link" data-scroll-target="#press-a-button">Press a button</a></li>
-  </ul></li>
+  <li><a href="#javascript" id="toc-javascript" class="nav-link" data-scroll-target="#javascript">JavaScript</a></li>
   <li><a href="#d3" id="toc-d3" class="nav-link" data-scroll-target="#d3">D3</a>
   <ul class="collapse">
+  <li><a href="#modify-text" id="toc-modify-text" class="nav-link" data-scroll-target="#modify-text">Modify text</a></li>
+  <li><a href="#respond-to-a-button-click" id="toc-respond-to-a-button-click" class="nav-link" data-scroll-target="#respond-to-a-button-click">Respond to a button click</a></li>
+  </ul></li>
+  <li><a href="#d3-with-data" id="toc-d3-with-data" class="nav-link" data-scroll-target="#d3-with-data">D3 with data</a>
+  <ul class="collapse">
   <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
-  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">Scatterplot</a></li>
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter-plot</a></li>
   <li><a href="#mouse-interaction" id="toc-mouse-interaction" class="nav-link" data-scroll-target="#mouse-interaction">Mouse interaction</a></li>
   <li><a href="#exercise-add-a-second-plot" id="toc-exercise-add-a-second-plot" class="nav-link" data-scroll-target="#exercise-add-a-second-plot">Exercise: add a second plot</a></li>
   </ul></li>
   <li><a href="#share-with-the-world" id="toc-share-with-the-world" class="nav-link" data-scroll-target="#share-with-the-world">Share with the world</a></li>
-  <li><a href="#further-refinements" id="toc-further-refinements" class="nav-link" data-scroll-target="#further-refinements">Further refinements</a>
-  <ul class="collapse">
-  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales">Scales</a></li>
-  <li><a href="#axes" id="toc-axes" class="nav-link" data-scroll-target="#axes">Axes</a></li>
-  </ul></li>
+  <li><a href="#further-possible-refinements" id="toc-further-possible-refinements" class="nav-link" data-scroll-target="#further-possible-refinements">Further possible refinements</a></li>
   </ul>
 </nav>
 </div>
@@ -3118,7 +3127,7 @@ h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workshop: HTML, Javascript, SVG, D3: a foot in the door</h1>
+<h1 class="title">Workshop: HTML, Javascript, SVG, D3</h1>
 </div>
 
 
@@ -3138,19 +3147,19 @@ h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
 <p><a href=".">Home page</a></p>
 <section id="html" class="level2">
 <h2 class="anchored" data-anchor-id="html">HTML</h2>
+<div class="tip">
+<p>The next sections build up to the file <code>example.html</code> in the workshop files.</p>
+</div>
 <p>Open a text editor and create a file called <code>hello.html</code> and type the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;utf-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>My page<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>My page<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hello.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hello.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In your web browser, go to the <code>File / Open file...</code> in the menus and open the file. Or enter the URL <code>file:///</code>, and navigate to your file.</p>
 <p>What’s all this?</p>
 <ul>
 <li><p><code>&lt;!doctype html&gt;</code> tells the browser that this page is written in HTML5, the latest standard, and that it doesn’t need to emulate any quirks of older browsers.</p></li>
-<li><p><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code> tells the browser this page is using UTF-8 encoded unicode text. UTF-8 is now used almost universally for text, but it’s good to tell the browser so it doesn’t have to guess (possibly wrongly).</p></li>
 <li><p><code>&lt;title&gt;...&lt;/title&gt;</code> sets the title of the page, visible in your tab bar.</p></li>
 <li><p><code>&lt;p&gt;...&lt;/p&gt;</code> denotes a paragraph of text. There are many different tags like this to tell the browser the meaning of text in the page (paragraph, heading, list, table, division, etc etc), and so how to display it.</p></li>
 </ul>
@@ -3180,42 +3189,76 @@ h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
 </section>
 <section id="svg" class="level2">
 <h2 class="anchored" data-anchor-id="svg">SVG</h2>
+<p>Add the following text to your page:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">circle</span><span class="ot"> cx</span><span class="op">=</span><span class="st">&quot;50&quot;</span><span class="ot"> cy</span><span class="op">=</span><span class="st">&quot;50&quot;</span><span class="ot"> r</span><span class="op">=</span><span class="st">&quot;10&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="javascript" class="level2">
-<h2 class="anchored" data-anchor-id="javascript">Javascript</h2>
-<section id="modify-the-point" class="level3">
-<h3 class="anchored" data-anchor-id="modify-the-point">Modify the point</h3>
-</section>
-<section id="press-a-button" class="level3">
-<h3 class="anchored" data-anchor-id="press-a-button">Press a button</h3>
-</section>
+<h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
+<p>Add the following to the end of your HTML file:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;use strict&quot;</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Hello from JavaScript!&quot;</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The magic line <code>&quot;use sctrict&quot;;</code> enables some extra error checking, you should always include it.</p>
+<p>The <code>console.log(&quot;...&quot;)</code> displays text in the console of the web developer tools.</p>
+<div class="tip">
+<p>Your HTML file should now look like <code>example.html</code> in the workshop files, and look like <a href="jsfoot/example.html">this</a> in your browser.</p>
+</div>
 </section>
 <section id="d3" class="level2">
 <h2 class="anchored" data-anchor-id="d3">D3</h2>
+<div class="tip">
+<p>This section builds up to the file <code>exampleD3.html</code> in the workshop files.</p>
+</div>
+<section id="modify-text" class="level3">
+<h3 class="anchored" data-anchor-id="modify-text">Modify text</h3>
+</section>
+<section id="respond-to-a-button-click" class="level3">
+<h3 class="anchored" data-anchor-id="respond-to-a-button-click">Respond to a button click</h3>
+<div class="tip">
+<p>Your HTML file should now look like <code>exampleD3.html</code> in the workshop files, and look like <a href="jsfoot/exampleD3.html">this</a> in your browser.</p>
+</div>
+</section>
+</section>
+<section id="d3-with-data" class="level2">
+<h2 class="anchored" data-anchor-id="d3-with-data">D3 with data</h2>
+<div class="tip">
+<p>The remainder of the workshop builds up to the file <code>examplePlots.html</code> in the workshop files.</p>
+</div>
 <section id="load-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-data">Load data</h3>
 </section>
-<section id="scatterplot" class="level3">
-<h3 class="anchored" data-anchor-id="scatterplot">Scatterplot</h3>
+<section id="scatter-plot" class="level3">
+<h3 class="anchored" data-anchor-id="scatter-plot">Scatter-plot</h3>
 </section>
 <section id="mouse-interaction" class="level3">
 <h3 class="anchored" data-anchor-id="mouse-interaction">Mouse interaction</h3>
 </section>
 <section id="exercise-add-a-second-plot" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-add-a-second-plot">Exercise: add a second plot</h3>
+<div class="tip">
+<p>Your HTML file should now look like <code>examplePlots.html</code> in the workshop files, and look like <a href="jsfoot/examplePlots.html">this</a> in your browser.</p>
+</div>
 </section>
 </section>
 <section id="share-with-the-world" class="level2">
 <h2 class="anchored" data-anchor-id="share-with-the-world">Share with the world</h2>
 </section>
-<section id="further-refinements" class="level2">
-<h2 class="anchored" data-anchor-id="further-refinements">Further refinements</h2>
-<section id="scales" class="level3">
-<h3 class="anchored" data-anchor-id="scales">Scales</h3>
-</section>
-<section id="axes" class="level3">
-<h3 class="anchored" data-anchor-id="axes">Axes</h3>
-</section>
+<section id="further-possible-refinements" class="level2">
+<h2 class="anchored" data-anchor-id="further-possible-refinements">Further possible refinements</h2>
+<ul>
+<li>The highlight could be made to work for both scatter-plots.</li>
+<li>A fully fleshed out interaction scheme may need to listen to multiple types of events. For example the highlight should disappear when it leaves a scatter-plot by responding to <code>&quot;mouseleave&quot;</code> events.</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>Usually there is scale that maps data to screen position. <code>d3.scale</code> can help with this.</li>
+<li>A plot usually has a visual indication of the scale. <code>d3.axis</code> can provide this.</li>
+</ul>
 </section>
 
 </main>

@@ -1,3 +1,17 @@
 
-h1,h2,h3,h4 { color: #0088ff; padding-top: 2em; }
+h1,h2,h3,h4 { color: #008888; padding-top: 2em; }
 
+.tip {
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: rgb(201, 249, 245);
+}
+
+.tip > :first-child {
+  margin-top: 0;
+}
+.tip > :last-child {
+  margin-bottom: 0;
+}

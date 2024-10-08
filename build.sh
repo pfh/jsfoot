@@ -4,7 +4,7 @@ set -euo pipefail
 rm -rf docs
 mkdir docs
 
-zip -r docs/jsfoot_files.zip jsfoot_files
-cp -r jsfoot_files docs/
+zip -r docs/jsfoot.zip jsfoot
+cp -r jsfoot docs/
 
 quarto render

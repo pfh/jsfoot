@@ -1,14 +1,17 @@
 ---
 title: "HTML, Javascript, SVG, D3: a foot in the door"
+format:
+    html:
+        css: style.css
 ---
 
-This is a 2 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
+This is a 1.5 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
 
 ## Workshop files
 
-This zip file contains example data, example HTML files, and solutions to exercises.
+This ZIP file contains a data file needed for the workshop and example HTML files.
 
-* [jsfoot_files.zip](jsfoot_files.zip)
+* [jsfoot.zip](jsfoot.zip)
 
 ## Workshop material
 

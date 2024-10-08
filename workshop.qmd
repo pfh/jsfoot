@@ -1,5 +1,5 @@
 ---
-title: "Workshop: HTML, Javascript, SVG, D3: a foot in the door"
+title: "Workshop: HTML, Javascript, SVG, D3"
 format:
     html:
         toc: true
@@ -13,12 +13,14 @@ format:
 
 ## HTML
 
+::: {.tip}
+The next sections build up to the file `example.html` in the workshop files.
+:::
+
 Open a text editor and create a file called `hello.html` and type the following:
 
 ```html
 <!doctype html>
-
-<meta charset="utf-8">
 
 <title>My page</title>
 
@@ -30,8 +32,6 @@ In your web browser, go to the `File / Open file...` in the menus and open the f
 What's all this?
 
 * `<!doctype html>` tells the browser that this page is written in HTML5, the latest standard, and that it doesn't need to emulate any quirks of older browsers.
-
-* `<meta charset="utf-8">` tells the browser this page is using UTF-8 encoded unicode text. UTF-8 is now used almost universally for text, but it's good to tell the browser so it doesn't have to guess (possibly wrongly).
 
 * `<title>...</title>` sets the title of the page, visible in your tab bar.
 
@@ -66,35 +66,80 @@ Make sure you try all this yourself.
 
 ## SVG
 
+Add the following text to your page:
 
-## Javascript
+```html
+<svg width="600" height="600">
+    <circle cx="50" cy="50" r="10" />
+</svg>
+```
 
-### Modify the point
 
-### Press a button
+## JavaScript
 
+Add the following to the end of your HTML file:
+
+```html
+<script>
+"use strict";
+
+console.log("Hello from JavaScript!");
+</script>
+```
+
+The magic line `"use sctrict";` enables some extra error checking, you should always include it.
+
+The `console.log("...")` displays text in the console of the web developer tools.
+
+::: {.tip}
+Your HTML file should now look like `example.html` in the workshop files, and look like [this](jsfoot/example.html) in your browser.
+:::
 
 
 ## D3
 
+::: {.tip}
+This section builds up to the file `exampleD3.html` in the workshop files.
+:::
+
+### Modify text
+
+### Respond to a button click
+
+::: {.tip}
+Your HTML file should now look like `exampleD3.html` in the workshop files, and look like [this](jsfoot/exampleD3.html) in your browser.
+:::
+
+## D3 with data
+
+::: {.tip}
+The remainder of the workshop builds up to the file `examplePlots.html` in the workshop files.
+:::
+
 ### Load data
 
-### Scatterplot
+### Scatter-plot
 
 ### Mouse interaction
 
 ### Exercise: add a second plot
 
+::: {.tip}
+Your HTML file should now look like `examplePlots.html` in the workshop files, and look like [this](jsfoot/examplePlots.html) in your browser.
+:::
 
 ## Share with the world
 
 
+## Further possible refinements
 
-## Further refinements
+* The highlight could be made to work for both scatter-plots.
+* A fully fleshed out interaction scheme may need to listen to multiple types of events. For example the highlight should disappear when it leaves a scatter-plot by responding to `"mouseleave"` events.
 
-### Scales
+\
 
-### Axes
+* Usually there is scale that maps data to screen position. `d3.scale` can help with this.
+* A plot usually has a visual indication of the scale. `d3.axis` can provide this.
 
 
 
