@@ -7,7 +7,7 @@
 <button id="mybutton">Button</button>
 
 
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
 
 <script>
 "use strict";
@@ -19,7 +19,7 @@ let button = d3.select("#mybutton");
 
 message.text("Hello from D3.");
 
-button.on("click", e => {
+button.on("click", event => {
     message.text("Button pressed.");
 });
 

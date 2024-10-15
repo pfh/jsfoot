@@ -8,11 +8,11 @@
 </svg>
 
 <svg width="600" height="600" id="plot2">
-    <image href="tissue.png" width=600 height=599>
+    <image href="tissue.png" width="600" height="599" />
 </svg>
 
 <!--
-<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
 -->
 
 <script src="d3.js"></script>
@@ -33,22 +33,22 @@ function update() {
     
     plot1.selectAll("circle")
         .data(spots)
-        .join('circle')
-        .attr('cx', d => d.umapX)
-        .attr('cy', d => d.umapY)
-        .attr('r', 2)
-        .attr('fill', d => d.highlight ? '#ff0000' : '#0000ff');
+        .join("circle")
+        .attr("cx", d => d.umapX)
+        .attr("cy", d => d.umapY)
+        .attr("r", 2)
+        .attr("fill", d => d.highlight ? "#ff0000" : "#0000ff");
     
     plot2.selectAll("circle")
         .data(spots)
-        .join('circle')
-        .attr('cx', d => d.imageX)
-        .attr('cy', d => d.imageY)
-        .attr('r', 2)
-        .attr('fill', d => d.highlight ? '#ff0000' : '#0000ff44');
+        .join("circle")
+        .attr("cx", d => d.imageX)
+        .attr("cy", d => d.imageY)
+        .attr("r", 2)
+        .attr("fill", d => d.highlight ? "#ff0000" : "#0000ff44");
 }
 
-plot1.on("mousemove", (event) => {
+plot1.on("mousemove", event => {
     mousePos = d3.pointer(event);
     update();
 })

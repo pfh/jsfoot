@@ -37,7 +37,8 @@ What's all this?
 
 * `<p>...</p>` denotes a paragraph of text. There are many different tags like this to tell the browser the meaning of text in the page (paragraph, heading, list, table, division, etc etc), and so how to display it.
 
-## Let's get developing
+
+## Developer tools in your browser
 
 In your browser, find the web developer tools.
 
@@ -59,11 +60,6 @@ Notice the document consists of text within tags within tags. It's a "tree".
 We left out some things, but the browser has filled them in, such as `<html>...</html>`, `<body>...</body>`, `<head>...</head>`.
 
 
-### Pause
-
-Make sure you try all this yourself.
-
-
 ## SVG
 
 Add the following text to your page:
@@ -73,6 +69,10 @@ Add the following text to your page:
     <circle cx="50" cy="50" r="10" />
 </svg>
 ```
+
+We've embedded an SVG picture in our page. We're also starting to use tags with *attributes* such as `width` and `cx`.
+
+The `<circle>` tag doesn't actually contain anything further, so it's written `<circle ... />`. (HTML is somewhat inconsistent about where this is used and where it isn't.)
 
 
 ## JavaScript
@@ -87,7 +87,7 @@ console.log("Hello from JavaScript!");
 </script>
 ```
 
-The magic line `"use sctrict";` enables some extra error checking, you should always include it.
+The magic line `"use strict";` enables some extra error checking, you should always include it.
 
 The `console.log("...")` displays text in the console of the web developer tools.
 
@@ -104,11 +104,64 @@ This section builds up to the file `exampleD3.html` in the workshop files.
 
 ### Modify text
 
+To easily find things in our document to modify, we can give them an `id` attribute.
+
+Create an HTML page with these tags:
+
+```html
+<p id="mymessage">Hello.</p>
+
+<button id="mybutton">Button</button>
+```
+
+Now we add some Javascript. We'll be using the D3 package. We'll load it over the web for now. Later we'll load it from a local file.
+
+D3 will give us an way to alter our document. (It's also not hard to do this without D3.)
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
+
+<script>
+"use strict";
+
+let message = d3.select("#mymessage");
+let button = d3.select("#mybutton");
+
+message.text("Hello from D3.");
+</script>
+```
+
+Here:
+
+* We use the D3 *function* `select` to find elements in the document.
+* `#mymessage` is a CSS selector. The `#` means select the element with the given ID.
+* We store these elements into some variables. In Javascript variables are declared using `let`. (Or several other ways! `let` is a good default though.)
+* D3 has wrapped each element in an object that makes it easy to alter it. We use the `text` *method* to modify the message element.
+
+
 ### Respond to a button click
+
+Now add the following Javascript:
+
+```javascript
+button.on("click", event => {
+    message.text("Button pressed.");
+});
+```
+
+Ok, there's a bit going on here:
+
+* `e => { ... }` is a concise way to create a function. This function takes one argument, `event`.
+* We pass the function to a method called `on`. Passing a function as an argument will be a common pattern with D3.
+* When the button emits a `"click"` event, the function will be called. The function is passed an event object (which we ignore here).
+
+Our web page is now *interactive*!
+
 
 ::: {.tip}
 Your HTML file should now look like `exampleD3.html` in the workshop files, and look like [this](jsfoot/exampleD3.html) in your browser.
 :::
+
 
 ## D3 with data
 
@@ -118,11 +171,98 @@ The remainder of the workshop builds up to the file `examplePlots.html` in the w
 
 ### Load data
 
+First let's load the data. We will also load a local copy of D3.
+
+Your HTML will have to be in the same directory as the files `spots.js` and `d3.js`.
+
+```html
+<script src="spots.js"></script>
+
+<script src="d3.js"></script>
+```
+
+Now in the console you can type `spots` to examine the dataset.
+
+Using a local copy of D3 means we are not dependent on an external website. This may help the longevity of our page.
+
+
 ### Scatter-plot
+
+Now let's display the data as a scatter-plot.
+
+```html
+<svg width="600" height="600" id="plot1"> </svg>
+
+<script>
+"use strict";
+
+let plot1 = d3.select("#plot1");
+
+plot1.selectAll("circle")
+    .data(spots)
+    .join('circle')
+    .attr('cx', d => d.umapX)
+    .attr('cy', d => d.umapY)
+    .attr('r', 2);
+</script>
+```
+
 
 ### Mouse interaction
 
-### Exercise: add a second plot
+Earlier we responded to a `"click"` event on a button. Here we will respond to a `"mousemove"` event in our SVG picture.
+
+```javascript
+let plot1 = d3.select("#plot1");
+let mousePos = [0,0];
+
+function update() {
+    for(let spot of spots) {
+        spot.highlight = (spot.umapX-mousePos[0])**2 + (spot.umapY-mousePos[1])**2 <= 30**2; 
+    }
+
+    plot1.selectAll("circle")
+        .data(spots)
+        .join("circle")
+        .attr("cx", d => d.umapX)
+        .attr("cy", d => d.umapY)
+        .attr("r", 2)
+        .attr("fill", d => d.highlight ? "#ff0000" : "#0000ff");
+}
+
+plot1.on("mousemove", event => {
+    mousePos = d3.pointer(event);
+    update();
+})
+
+update();
+```
+
+Ok, a lot to unpack here. Also this is Paul's opinionated version of how to write this code!
+
+* We have some state now, in the form of `mousePos`, which should affect what is displayed.
+* We meet another common syntax for defining functions, `function update() { ... }`.
+* Our `update()` function brings the web page into sync with what we would like to display. `update()` is "idempotent", and we feel free to call it whenever something changes.
+* When the mouse moves, we store the new mouse position and then `update()`.
+* Within the function, we decide which spots to highlight, using a `for` loop, and then use this to update the fill color of each circle.
+* Finally, we call `update()` to set up the display initially.
+
+This pattern of code makes it easy to keep your display correctly up to date with the internal state of your program. *What is displayed is a function of the internal state.* D3's `join` feature helps with this synchronization. It handles the details of adding and removing DOM elements to match your current data.
+
+As your visualization becomes more complex, and if performance becomes a problem, you might start building some shortcuts into `update()` to only update things as needed. For very complex projects, you could use a package such as React. It is also a principle in React that what the user sees is a function of the internal state.
+
+
+### Exercise: Add a second plot
+
+We have a microscope image of the tissue that these spots are located in. Add a second plot with this image.
+
+```html
+<svg width="600" height="600" id="plot2">
+    <image href="tissue.png" width="600" height="599" />
+</svg>
+```
+
+Update the JavaScript code to show points in this second plot, now using the `imageX` and `imageY` attributes of each spot. These spots should also be highlighted when you mouse over the original scatter-plot.
 
 ::: {.tip}
 Your HTML file should now look like `examplePlots.html` in the workshop files, and look like [this](jsfoot/examplePlots.html) in your browser.
