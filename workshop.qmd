@@ -17,7 +17,7 @@ format:
 The next sections build up to the file `example.html` in the workshop files.
 :::
 
-Open a text editor and create a file called `hello.html` and type the following:
+Open a text editor, create a file called, `hello.html` and type the following:
 
 ```html
 <!doctype html>
@@ -27,7 +27,7 @@ Open a text editor and create a file called `hello.html` and type the following:
 <p>Hello.</p>
 ```
 
-In your web browser, go to the `File / Open file...` in the menus and open the file. Or enter the URL `file:///`, and navigate to your file.
+In your web browser, go to `File / Open file...` in the menus and open the file. Or you can enter the URL `file:///`, and navigate to your file.
 
 What's all this?
 
@@ -62,7 +62,7 @@ We left out some things, but the browser has filled them in, such as `<html>...<
 
 ## SVG
 
-Add the following text to your page:
+Add the following text to the end of your page:
 
 ```html
 <svg width="600" height="600">
@@ -106,20 +106,24 @@ This section builds up to the file `exampleD3.html` in the workshop files.
 
 To easily find things in our document to modify, we can give them an `id` attribute.
 
-Create an HTML page with these tags:
+Create a new HTML page with these tags:
 
 ```html
+<!doctype html>
+
+<title>My D3 page</title>
+
 <p id="mymessage">Hello.</p>
 
 <button id="mybutton">Button</button>
 ```
 
-Now we add some Javascript. We'll be using the D3 package. We'll load it over the web for now. Later we'll load it from a local file.
+Now we add some Javascript. We'll be using the D3 package. Make sure the file `d3.js` is in the same directory as your HTML page.
 
 D3 will give us an way to alter our document. (It's also not hard to do this without D3.)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
+<script src="d3.js"></script>
 
 <script>
 "use strict";
@@ -138,6 +142,15 @@ Here:
 * We store these elements into some variables. In Javascript variables are declared using `let`. (Or several other ways! `let` is a good default though.)
 * D3 has wrapped each element in an object that makes it easy to alter it. We use the `text` *method* to modify the message element.
 
+:::{.callout-tip}
+We could also load D3 directly from a CDN with:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
+```
+
+However this adds an external dependency to our page. For our page to keep working in the long term, `jsdeliver.net` would also need to keep existing.
+:::
 
 ### Respond to a button click
 
@@ -151,7 +164,7 @@ button.on("click", event => {
 
 Ok, there's a bit going on here:
 
-* `e => { ... }` is a concise way to create a function. This function takes one argument, `event`.
+* `event => { ... }` is a concise way to create a function. This function takes one argument, `event`.
 * We pass the function to a method called `on`. Passing a function as an argument will be a common pattern with D3.
 * When the button emits a `"click"` event, the function will be called. The function is passed an event object (which we ignore here).
 
@@ -171,9 +184,9 @@ The remainder of the workshop builds up to the file `examplePlots.html` in the w
 
 ### Load data
 
-First let's load the data. We will also load a local copy of D3.
+Create a new HTML page with the usual stuff, as before.
 
-Your HTML will have to be in the same directory as the files `spots.js` and `d3.js`.
+First let's load the data and D3. Your HTML will have to be in the same directory as the files `spots.js` and `d3.js`.
 
 ```html
 <script src="spots.js"></script>
@@ -182,8 +195,6 @@ Your HTML will have to be in the same directory as the files `spots.js` and `d3.
 ```
 
 Now in the console you can type `spots` to examine the dataset.
-
-Using a local copy of D3 means we are not dependent on an external website. This may help the longevity of our page.
 
 
 ### Scatter-plot
@@ -200,12 +211,23 @@ let plot1 = d3.select("#plot1");
 
 plot1.selectAll("circle")
     .data(spots)
-    .join('circle')
-    .attr('cx', d => d.umapX)
-    .attr('cy', d => d.umapY)
-    .attr('r', 2);
+    .join("circle")
+    .attr("cx", d => d.umapX)
+    .attr("cy", d => d.umapY)
+    .attr("r", 2);
 </script>
 ```
+
+Ok, there's a fair bit going on here:
+
+* D3 has been written so you can chain together method calls in a pipeline.
+
+* `.selectAll("circle")` selects any existing `<circle />` elements within `#plot1`. There aren't any yet, but this will be important later! This also means we are dealing with a selection of elements within `#plot1` and not `#plot1` itself.
+* `.data(spots)` associates a dataset with the selection. For more advanced/dynamics plots, it might be necessary to specify a [key](https://d3js.org/d3-selection/joining#selection_data) at this step too.
+* `.join("circle")` is where the magic happens. The selection of elements is made to match the dataset, creating and deleting elements as necessary. The `"circle"` here says to create `<circle />` elements if new elements are needed. In more dynamics plots, the details of this can be [customized](https://d3js.org/d3-selection/joining#selection_join), for example animating the creation and deletion of elements.
+* Now there is a `<circle />` element associated with item in our dataset!
+* `.attr("r", 2)` gives all elements an `"r"` (radius) of 2.
+* `.attr("cx", d => d.umapX)` similarly updates `"cx"` but now the value is computed from the associated data using the function we have provided. Similarly for `"cy"`. 
 
 
 ### Mouse interaction
@@ -224,9 +246,9 @@ function update() {
     plot1.selectAll("circle")
         .data(spots)
         .join("circle")
+        .attr("r", 2)
         .attr("cx", d => d.umapX)
         .attr("cy", d => d.umapY)
-        .attr("r", 2)
         .attr("fill", d => d.highlight ? "#ff0000" : "#0000ff");
 }
 
@@ -268,16 +290,31 @@ Update the JavaScript code to show points in this second plot, now using the `im
 Your HTML file should now look like `examplePlots.html` in the workshop files, and look like [this](jsfoot/examplePlots.html) in your browser.
 :::
 
+
 ## Share with the world
+
+Create an account on [GitHub](https://github.com).
+
+Create a new repository.
+
+Upload necessary files. You can use git from the command line, or upload files using the website by pressing the "+" button.
+
+* Your HTML file.
+* The other files it needs: `spots.js`, `d3.js`, `tissue.png`.
+
+Go to "Settings", then "Pages", and under "Branch" choose the "main" branch in the drop-down.
+
+*After a minute or two,* your page will be accessible to anyone at the url:
+
+> `https://myUsername.github.io/myRepo/myFile.html`
+
+substituting `myUsername`, `myRepo` and `myFile` as appropriate.
 
 
 ## Further possible refinements
 
 * The highlight could be made to work for both scatter-plots.
 * A fully fleshed out interaction scheme may need to listen to multiple types of events. For example the highlight should disappear when it leaves a scatter-plot by responding to `"mouseleave"` events.
-
-\
-
 * Usually there is scale that maps data to screen position. `d3.scale` can help with this.
 * A plot usually has a visual indication of the scale. `d3.axis` can provide this.
 

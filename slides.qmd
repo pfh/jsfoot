@@ -16,6 +16,7 @@ format:
 
 We will be using:
 
+\
 **HTML** to create a web-page.
 
 **SVG** to create pictures in the web-page.
@@ -25,8 +26,9 @@ We will be using:
 **D3** a module that helps turn data into pictures.
 
 \
-Note you should also learn:
+You should also go on to learn:
 
+\
 **CSS** to format and lay out your web-page.
 
 
@@ -48,9 +50,9 @@ Ok, let's go make a web page.
 
 
 
-## Javascript got better
+## JavaScript got better
 
-Javascript has a lot of history, including some mis-steps. Since we can't just go and break millions of websites, those mis-steps can't be erased.
+JavaScript has a lot of history, including some mis-steps. Since we can't just go and break millions of websites, those mis-steps can't be erased.
 
 However we can use new features that avoid those mis-steps:
 
@@ -66,7 +68,7 @@ Used tastefully, Javascript is now quite the nice language.
 
 Packaging code used to be done in an ad-hoc way ("UMD", "AMD", "CJS").
 
-One of the new things in Javascript is a proper module system (ESM).
+One of the new things in JavaScript is a proper module system (ESM).
 
 **BUT** you need a web server to use ESM modules.
 
@@ -142,6 +144,7 @@ writeLines(json_script, "spots.js")
 
 Examine the file `spots.js`.
 
+\
 (I've written the data out this way so we can work without a web-server. [You can read CSV and JSON files directly if they are on a web-server.](https://d3js.org/d3-fetch))
 
 
@@ -241,4 +244,7 @@ npx http-server -a 127.0.0.1
 
 \
 In both cases, I specified to listen to the loopback IP address `127.0.0.1` which is accessable from your own computer but not the local network.
+
+
+# Go tinker
 

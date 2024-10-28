@@ -1235,13 +1235,15 @@ Paul Harrison
 <section id="the-big-picture" class="slide level2">
 <h2>The big picture</h2>
 <p>We will be using:</p>
-<p><strong>HTML</strong> to create a web-page.</p>
+<p><br>
+<strong>HTML</strong> to create a web-page.</p>
 <p><strong>SVG</strong> to create pictures in the web-page.</p>
 <p><strong>JavaScript</strong> to run code in the web-page.</p>
 <p><strong>D3</strong> a module that helps turn data into pictures.</p>
 <p><br>
-Note you should also learn:</p>
-<p><strong>CSS</strong> to format and lay out your web-page.</p>
+You should also go on to learn:</p>
+<p><br>
+<strong>CSS</strong> to format and lay out your web-page.</p>
 </section>
 <section id="html" class="slide level2">
 <h2>HTML</h2>
@@ -1258,8 +1260,8 @@ Note you should also learn:</p>
 <h2>JavaScript and D3</h2>
 </section>
 <section id="javascript-got-better" class="slide level2">
-<h2>Javascript got better</h2>
-<p>Javascript has a lot of history, including some mis-steps. Since we can’t just go and break millions of websites, those mis-steps can’t be erased.</p>
+<h2>JavaScript got better</h2>
+<p>JavaScript has a lot of history, including some mis-steps. Since we can’t just go and break millions of websites, those mis-steps can’t be erased.</p>
 <p>However we can use new features that avoid those mis-steps:</p>
 <ul>
 <li>Put <code>&quot;use strict&quot;;</code> at the top of scripts to enable strict mode.</li>
@@ -1272,7 +1274,7 @@ Note you should also learn:</p>
 <section id="modules" class="slide level2">
 <h2>Modules</h2>
 <p>Packaging code used to be done in an ad-hoc way (“UMD”, “AMD”, “CJS”).</p>
-<p>One of the new things in Javascript is a proper module system (ESM).</p>
+<p>One of the new things in JavaScript is a proper module system (ESM).</p>
 <p><strong>BUT</strong> you need a web server to use ESM modules.</p>
 <p>So:</p>
 <ul>
@@ -1325,7 +1327,8 @@ Arrays and objects in Javascript are similar to <code>list</code>s and <code>dic
 <span id="cb1-2"><a href aria-hidden="true" tabindex="-1"></a>json_script <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;let spots = &quot;</span>, <span class="fu">toJSON</span>(dataset, <span class="at">pretty=</span><span class="cn">TRUE</span>), <span class="st">&quot;;&quot;</span>)</span>
 <span id="cb1-3"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(json_script, <span class="st">&quot;spots.js&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Examine the file <code>spots.js</code>.</p>
-<p>(I’ve written the data out this way so we can work without a web-server. <a href="https://d3js.org/d3-fetch">You can read CSV and JSON files directly if they are on a web-server.</a>)</p>
+<p><br>
+(I’ve written the data out this way so we can work without a web-server. <a href="https://d3js.org/d3-fetch">You can read CSV and JSON files directly if they are on a web-server.</a>)</p>
 </section>
 <section>
 <section id="further-things" class="title-slide slide level1 center">
@@ -1407,12 +1410,15 @@ layout!
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server <span class="at">-a</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 In both cases, I specified to listen to the loopback IP address <code>127.0.0.1</code> which is accessable from your own computer but not the local network.</p>
+</section></section>
+<section id="go-tinker" class="title-slide slide level1 center">
+<h1>Go tinker</h1>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

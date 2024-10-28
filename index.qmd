@@ -24,7 +24,7 @@ This ZIP file contains a data file needed for the workshop and example HTML file
 
 [D3 in Depth book](https://www.d3indepth.com/)
 
-[D3 API](https://d3js.org/getting-started)
+[D3 reference documentation](https://d3js.org/getting-started)
 
 [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 
@@ -33,11 +33,18 @@ This ZIP file contains a data file needed for the workshop and example HTML file
 
 [D3 examples](https://observablehq.com/@d3/gallery) from [Observable](https://observablehq.com/).
 
-[How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) in the [Distill Journal](https://distill.pub/), and a similar page on [UMAP](https://pair-code.github.io/understanding-umap/).
+[How to Use t-SNE Effectively](https://distill.pub/2016/misread-tsne/) in the brilliant [Distill Journal](https://distill.pub/), and a similar page on [UMAP](https://pair-code.github.io/understanding-umap/).
 
 [Sleepwalk](https://anders-biostat.github.io/sleepwalk/) to examine true distances in an embedding like UMAP.
 
-Amanda Cox applies data visualization as journalism. For example [this article](https://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?searchResultPosition=9) features animations and reveals details where the mouse is pointing.
+More bioinformatics examples: [Degust](https://degust.erc.monash.edu/degust/compare.html?code=example#/), [Glimma](https://www.bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html), [igv.js](https://igv.org/web/release/3.0.8/examples/cram-vcf.html)
+
+
+### Journalism
+
+Amanda Cox has applied data visualization to journalism. For example [this article](https://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?searchResultPosition=9) features animations and reveals details where the mouse is pointing.
+
+[The Pudding](https://pudding.cool/) features a similar style of article.
 
 
 ### My own examples

@@ -1,7 +1,7 @@
 # jsfoot
-# HTML, Javascript, SVG, D3 - A foot in the door (ResBaz workshop)
+# HTML, Javascript, SVG, D3 - A foot in the door
 
-This is a 2 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
+This is a 1.5 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
 
 What if there was a way to let the whole world visualize and interact with your data, using code you have written, with video-game-like smoothness, and with software they already have on their laptop or phone? You can with a web page. Also you can do this for free and it will probably keep on working for decades to come.
 

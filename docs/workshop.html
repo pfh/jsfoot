@@ -3147,13 +3147,13 @@ margin-bottom: 0;
 <div class="tip">
 <p>The next sections build up to the file <code>example.html</code> in the workshop files.</p>
 </div>
-<p>Open a text editor and create a file called <code>hello.html</code> and type the following:</p>
+<p>Open a text editor, create a file called, <code>hello.html</code> and type the following:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>My page<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Hello.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In your web browser, go to the <code>File / Open file...</code> in the menus and open the file. Or enter the URL <code>file:///</code>, and navigate to your file.</p>
+<p>In your web browser, go to <code>File / Open file...</code> in the menus and open the file. Or you can enter the URL <code>file:///</code>, and navigate to your file.</p>
 <p>What’s all this?</p>
 <ul>
 <li><p><code>&lt;!doctype html&gt;</code> tells the browser that this page is written in HTML5, the latest standard, and that it doesn’t need to emulate any quirks of older browsers.</p></li>
@@ -3182,7 +3182,7 @@ margin-bottom: 0;
 </section>
 <section id="svg" class="level2">
 <h2 class="anchored" data-anchor-id="svg">SVG</h2>
-<p>Add the following text to your page:</p>
+<p>Add the following text to the end of your page:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">circle</span><span class="ot"> cx</span><span class="op">=</span><span class="st">&quot;50&quot;</span><span class="ot"> cy</span><span class="op">=</span><span class="st">&quot;50&quot;</span><span class="ot"> r</span><span class="op">=</span><span class="st">&quot;10&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3211,13 +3211,17 @@ margin-bottom: 0;
 <section id="modify-text" class="level3">
 <h3 class="anchored" data-anchor-id="modify-text">Modify text</h3>
 <p>To easily find things in our document to modify, we can give them an <code>id</code> attribute.</p>
-<p>Create an HTML page with these tags:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mymessage&quot;</span><span class="dt">&gt;</span>Hello.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<p>Create a new HTML page with these tags:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype</span> html<span class="dt">&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mybutton&quot;</span><span class="dt">&gt;</span>Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now we add some Javascript. We’ll be using the D3 package. We’ll load it over the web for now. Later we’ll load it from a local file.</p>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>My D3 page<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mymessage&quot;</span><span class="dt">&gt;</span>Hello.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mybutton&quot;</span><span class="dt">&gt;</span>Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we add some Javascript. We’ll be using the D3 package. Make sure the file <code>d3.js</code> is in the same directory as your HTML page.</p>
 <p>D3 will give us an way to alter our document. (It’s also not hard to do this without D3.)</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;use strict&quot;</span><span class="op">;</span></span>
@@ -3234,16 +3238,31 @@ margin-bottom: 0;
 <li>We store these elements into some variables. In Javascript variables are declared using <code>let</code>. (Or several other ways! <code>let</code> is a good default though.)</li>
 <li>D3 has wrapped each element in an object that makes it easy to alter it. We use the <code>text</code> <em>method</em> to modify the message element.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We could also load D3 directly from a CDN with:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However this adds an external dependency to our page. For our page to keep working in the long term, <code>jsdeliver.net</code> would also need to keep existing.</p>
+</div>
+</div>
 </section>
 <section id="respond-to-a-button-click" class="level3">
 <h3 class="anchored" data-anchor-id="respond-to-a-button-click">Respond to a button click</h3>
 <p>Now add the following Javascript:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>button<span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    message<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Button pressed.&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>button<span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    message<span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;Button pressed.&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ok, there’s a bit going on here:</p>
 <ul>
-<li><code>e =&gt; { ... }</code> is a concise way to create a function. This function takes one argument, <code>event</code>.</li>
+<li><code>event =&gt; { ... }</code> is a concise way to create a function. This function takes one argument, <code>event</code>.</li>
 <li>We pass the function to a method called <code>on</code>. Passing a function as an argument will be a common pattern with D3.</li>
 <li>When the button emits a <code>&quot;click&quot;</code> event, the function will be called. The function is passed an event object (which we ignore here).</li>
 </ul>
@@ -3260,58 +3279,67 @@ margin-bottom: 0;
 </div>
 <section id="load-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-data">Load data</h3>
-<p>First let’s load the data. We will also load a local copy of D3.</p>
-<p>Your HTML will have to be in the same directory as the files <code>spots.js</code> and <code>d3.js</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;spots.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Create a new HTML page with the usual stuff, as before.</p>
+<p>First let’s load the data and D3. Your HTML will have to be in the same directory as the files <code>spots.js</code> and <code>d3.js</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;spots.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;d3.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now in the console you can type <code>spots</code> to examine the dataset.</p>
-<p>Using a local copy of D3 means we are not dependent on an external website. This may help the longevity of our page.</p>
 </section>
 <section id="scatter-plot" class="level3">
 <h3 class="anchored" data-anchor-id="scatter-plot">Scatter-plot</h3>
 <p>Now let’s display the data as a scatter-plot.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;plot1&quot;</span><span class="dt">&gt;</span> <span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;use strict&quot;</span><span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> plot1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#plot1&quot;</span>)<span class="op">;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plot1<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(spots)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">join</span>(<span class="st">&#39;circle&#39;</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;cx&#39;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapX</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;cy&#39;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapY</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;r&#39;</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;plot1&quot;</span><span class="dt">&gt;</span> <span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;use strict&quot;</span><span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> plot1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#plot1&quot;</span>)<span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plot1<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">data</span>(spots)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">join</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapX</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapY</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ok, there’s a fair bit going on here:</p>
+<ul>
+<li><p>D3 has been written so you can chain together method calls in a pipeline.</p></li>
+<li><p><code>.selectAll(&quot;circle&quot;)</code> selects any existing <code>&lt;circle /&gt;</code> elements within <code>#plot1</code>. There aren’t any yet, but this will be important later! This also means we are dealing with a selection of elements within <code>#plot1</code> and not <code>#plot1</code> itself.</p></li>
+<li><p><code>.data(spots)</code> associates a dataset with the selection. For more advanced/dynamics plots, it might be necessary to specify a <a href="https://d3js.org/d3-selection/joining#selection_data">key</a> at this step too.</p></li>
+<li><p><code>.join(&quot;circle&quot;)</code> is where the magic happens. The selection of elements is made to match the dataset, creating and deleting elements as necessary. The <code>&quot;circle&quot;</code> here says to create <code>&lt;circle /&gt;</code> elements if new elements are needed. In more dynamics plots, the details of this can be <a href="https://d3js.org/d3-selection/joining#selection_join">customized</a>, for example animating the creation and deletion of elements.</p></li>
+<li><p>Now there is a <code>&lt;circle /&gt;</code> element associated with item in our dataset!</p></li>
+<li><p><code>.attr(&quot;r&quot;, 2)</code> gives all elements an <code>&quot;r&quot;</code> (radius) of 2.</p></li>
+<li><p><code>.attr(&quot;cx&quot;, d =&gt; d.umapX)</code> similarly updates <code>&quot;cx&quot;</code> but now the value is computed from the associated data using the function we have provided. Similarly for <code>&quot;cy&quot;</code>.</p></li>
+</ul>
 </section>
 <section id="mouse-interaction" class="level3">
 <h3 class="anchored" data-anchor-id="mouse-interaction">Mouse interaction</h3>
 <p>Earlier we responded to a <code>&quot;click&quot;</code> event on a button. Here we will respond to a <code>&quot;mousemove&quot;</code> event in our SVG picture.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> plot1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#plot1&quot;</span>)<span class="op">;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> mousePos <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span><span class="dv">0</span>]<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">update</span>() {</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="kw">let</span> spot <span class="kw">of</span> spots) {</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        spot<span class="op">.</span><span class="at">highlight</span> <span class="op">=</span> (spot<span class="op">.</span><span class="at">umapX</span><span class="op">-</span>mousePos[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (spot<span class="op">.</span><span class="at">umapY</span><span class="op">-</span>mousePos[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span><span class="op">;</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    plot1<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(spots)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">join</span>(<span class="st">&quot;circle&quot;</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapX</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapY</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="dv">2</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">highlight</span> <span class="op">?</span> <span class="st">&quot;#ff0000&quot;</span> <span class="op">:</span> <span class="st">&quot;#0000ff&quot;</span>)<span class="op">;</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>plot1<span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mousemove&quot;</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    mousePos <span class="op">=</span> d3<span class="op">.</span><span class="fu">pointer</span>(<span class="bu">event</span>)<span class="op">;</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">update</span>()<span class="op">;</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> plot1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#plot1&quot;</span>)<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> mousePos <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span><span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">update</span>() {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="kw">let</span> spot <span class="kw">of</span> spots) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        spot<span class="op">.</span><span class="at">highlight</span> <span class="op">=</span> (spot<span class="op">.</span><span class="at">umapX</span><span class="op">-</span>mousePos[<span class="dv">0</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (spot<span class="op">.</span><span class="at">umapY</span><span class="op">-</span>mousePos[<span class="dv">1</span>])<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> <span class="dv">30</span><span class="op">**</span><span class="dv">2</span><span class="op">;</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    plot1<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(spots)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">join</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;r&quot;</span><span class="op">,</span> <span class="dv">2</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cx&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapX</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;cy&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">umapY</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">highlight</span> <span class="op">?</span> <span class="st">&quot;#ff0000&quot;</span> <span class="op">:</span> <span class="st">&quot;#0000ff&quot;</span>)<span class="op">;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plot1<span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mousemove&quot;</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    mousePos <span class="op">=</span> d3<span class="op">.</span><span class="fu">pointer</span>(<span class="bu">event</span>)<span class="op">;</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">update</span>()<span class="op">;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ok, a lot to unpack here. Also this is Paul’s opinionated version of how to write this code!</p>
 <ul>
 <li>We have some state now, in the form of <code>mousePos</code>, which should affect what is displayed.</li>
@@ -3327,9 +3355,9 @@ margin-bottom: 0;
 <section id="exercise-add-a-second-plot" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-add-a-second-plot">Exercise: Add a second plot</h3>
 <p>We have a microscope image of the tissue that these spots are located in. Add a second plot with this image.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;plot2&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;tissue.png&quot;</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;599&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;plot2&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">image</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;tissue.png&quot;</span><span class="ot"> width</span><span class="op">=</span><span class="st">&quot;600&quot;</span><span class="ot"> height</span><span class="op">=</span><span class="st">&quot;599&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Update the JavaScript code to show points in this second plot, now using the <code>imageX</code> and <code>imageY</code> attributes of each spot. These spots should also be highlighted when you mouse over the original scatter-plot.</p>
 <div class="tip">
 <p>Your HTML file should now look like <code>examplePlots.html</code> in the workshop files, and look like <a href="jsfoot/examplePlots.html">this</a> in your browser.</p>
@@ -3338,16 +3366,25 @@ margin-bottom: 0;
 </section>
 <section id="share-with-the-world" class="level2">
 <h2 class="anchored" data-anchor-id="share-with-the-world">Share with the world</h2>
+<p>Create an account on <a href="https://github.com">GitHub</a>.</p>
+<p>Create a new repository.</p>
+<p>Upload necessary files. You can use git from the command line, or upload files using the website by pressing the “+” button.</p>
+<ul>
+<li>Your HTML file.</li>
+<li>The other files it needs: <code>spots.js</code>, <code>d3.js</code>, <code>tissue.png</code>.</li>
+</ul>
+<p>Go to “Settings”, then “Pages”, and under “Branch” choose the “main” branch in the drop-down.</p>
+<p><em>After a minute or two,</em> your page will be accessible to anyone at the url:</p>
+<blockquote class="blockquote">
+<p><code>https://myUsername.github.io/myRepo/myFile.html</code></p>
+</blockquote>
+<p>substituting <code>myUsername</code>, <code>myRepo</code> and <code>myFile</code> as appropriate.</p>
 </section>
 <section id="further-possible-refinements" class="level2">
 <h2 class="anchored" data-anchor-id="further-possible-refinements">Further possible refinements</h2>
 <ul>
 <li>The highlight could be made to work for both scatter-plots.</li>
 <li>A fully fleshed out interaction scheme may need to listen to multiple types of events. For example the highlight should disappear when it leaves a scatter-plot by responding to <code>&quot;mouseleave&quot;</code> events.</li>
-</ul>
-<p><br>
-</p>
-<ul>
 <li>Usually there is scale that maps data to screen position. <code>d3.scale</code> can help with this.</li>
 <li>A plot usually has a visual indication of the scale. <code>d3.axis</code> can provide this.</li>
 </ul>
