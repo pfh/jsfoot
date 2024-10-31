@@ -1,6 +1,6 @@
 ---
 title: "HTML, JavaScript, SVG, D3: a foot in the door"
-author: "Paul Harrison"
+author: "Dr. Paul Harrison"
 format: 
     revealjs:
         smaller: true
@@ -8,46 +8,92 @@ format:
         css: "slides-style.css"
         code-line-numbers: false
         embed-resources: true
+        title-prefix: "Slides"
 ---
 
-## What if?
+## Presenting data
+
+Say we want to present our data, or a complex idea, using interactive software.
+
+\
+We might like it:
+
+* To be easy for many people to access.
+* To be relatively easy to develop.
+* To keep working in future decades.
+
+Writing a web page scores highly on all of these.
+
 
 ## The big picture
 
-We will be using:
+<div style="display: grid; gap: 1em; grid-template-columns: auto auto 1fr;">
+<div style="grid-column: 1/4">We will be using:</div>
 
-\
-**HTML** to create a web-page.
+<div style="text-align:right">**HTML**</div>
+<div>to create a web-page.</div>
+<div>`<!doctype html>`</div>
 
-**SVG** to create pictures in the web-page.
+<div style="text-align:right">**SVG**</div> 
+<div>to create pictures in the web-page.</div>
+<div>`<svg id="plot">`</div>
 
-**JavaScript** to run code in the web-page.
+<div style="text-align:right">**JavaScript**</div>
+<div>to run code in the web-page.</div>
+<div>`<script>`</div>
 
-**D3** a module that helps turn data into pictures.
+<div style="text-align:right">**D3**</div>
+<div>a module that helps turn data into pictures.</div>
+<div>`d3.select("#plot")`</div>
 
-\
-You should also go on to learn:
+<div style="grid-column: 1/4"><br><br>You should also go on to learn:</div>
 
-\
-**CSS** to format and lay out your web-page.
+<div style="text-align:right">**CSS**</div>
+<div>to format and lay out your web-page.</div>
+<div>`<link rel="stylesheet" href="style.css">`</div>
 
+</div>
 
-## HTML
-
-Once we start using JavaScript, we can access the structure of our HTML using the Document Object Model (DOM).
 
 ##
 
 Ok, let's go make a web page.
 
 
+## HTML
+
+We've seen we can write HTML using a text editor.
+
+The HTML document is structured as a **tree** of tags within tags within tags.
+
+Once we start using JavaScript, we can access the tags in the document as elements in the "Document Object Model" (DOM).
+
+
 ## SVG
 
+Scalable Vector Graphics (SVG) is an XML-based format for vector graphics.
 
-## JavaScript and D3
+SVG can be a stand-alone file or embedded in an HTML file.
+
+SVG in HTML is included in the DOM, and we can modify is using JavaScript.
 
 
+## JavaScript
 
+JavaScript allows you to include code in your web page.
+
+Since it runs in a web page we can do some unusual things:
+
+* Respond to events.
+* Update the DOM.
+* Fetch data from the web.
+
+\
+Note: JavaScript is completely unrelated to Java.
+
+##
+
+Ok, let's look at examples of using SVG and JavaScript.
 
 
 ## JavaScript got better
@@ -78,33 +124,22 @@ So:
 * At least initially, we'll use the old way.
 
 
-## A data scientist dabbler's perspective
+## <img style="display:block;float:right" src="figures/d3-logo.svg" width="300">D3
 
-There is a vast and ever changing range of modules, frameworks, and tooling for JavaScript, aimed at a variety of users with differing needs.
+D3 is a module that provides a useful toolkit for presenting data interactively.
 
-**You are allowed to ignore all this.**
+It doesn't give you a function to make a plot, \
+it gives you the tools you need to make it yourself.
 
-\
-Packages like jQuery and D3 provide convenient wrappers around built-in features such as `document.querySelectorAll()`. They may save some typing, but you should also learn how to do DOM manipulation yourself.
+* Simplified DOM manipulation.
+* "Joining" data with DOM elements.
+* Animation.
+* Scale calculations such as position and color.
+* Fetching data.
+* Helpers for certain interactions such as drag-and-drop.
+* ...
 
-* Today I'm using D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
 
-Other packages and tooling are aimed at large projects and teams, such as React and TypeScript.
-
-* Today, instead of using React/etc, I will write one big *idempotent* function called `update()`, and call it whenever needed.
-
-
-## "Idempotent"
-
-An "idempotent" operation has the same result no matter how many times you run it.
-
-\
-We'll write an idempotent `update()` function that updates the DOM to look the way we want it to.
-
-D3's `join()` helps with this, it will only create DOM objects for our data if they don't already exist.
-
-\
-This saves us from writing separate code to first create the plot and then to later update it.
 
 
 ## Data in Javascript
@@ -147,6 +182,40 @@ Examine the file `spots.js`.
 \
 (I've written the data out this way so we can work without a web-server. [You can read CSV and JSON files directly if they are on a web-server.](https://d3js.org/d3-fetch))
 
+##
+
+Ok, let's make an interactive plot.
+
+
+# Comments
+
+## A data scientist dabbler's perspective
+
+There is a vast and ever changing range of modules, frameworks, and tooling for JavaScript, aimed at a variety of users with differing needs.
+
+**You are allowed to ignore all this.**
+
+\
+Packages like jQuery and D3 provide convenient wrappers around built-in features such as `document.querySelectorAll()`. They may save some typing, but you should also learn how to do DOM manipulation yourself.
+
+* Today I'm used D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
+
+Other packages and tooling are aimed at large projects and teams, such as React.
+
+* Today, instead of using React/etc, we wrote one big *idempotent* function called `update()`, and called it whenever needed.
+
+
+## <img style="display:block;float:right;padding: 20px;" src="figures/idempotent-meme.jpg" width="400">"Idempotent"
+
+An idempotent operation has the same result no matter how many times you run it.
+
+\
+We'll write an idempotent `update()` function that updates the DOM to look the way we want it to.
+
+D3's `join()` helps with this, it will only create DOM objects for our data if they don't already exist.
+
+\
+This saves us from writing separate code to first create the plot and then to later update it.
 
 
 # Further things
@@ -244,6 +313,17 @@ npx http-server -a 127.0.0.1
 
 \
 In both cases, I specified to listen to the loopback IP address `127.0.0.1` which is accessable from your own computer but not the local network.
+
+
+## Integrate with R or Python
+
+R can include JavaScript widgets, for example in Quarto documents or Shiny apps.
+
+* See the [`htmlwidgets`](https://www.htmlwidgets.org/) package.
+
+Jupyter notebooks can also output JavaScript.
+
+
 
 
 # Go tinker

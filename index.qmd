@@ -7,9 +7,13 @@ format:
 
 This is a 1.5 hour workshop for [ResBaz Victoria 2024](https://resbaz.github.io/resbazvic2024/).
 
+*What if there was a way to let the whole world visualize and interact with your data, using code you have written, with video-game-like smoothness, and with software they already have on their laptop or phone? You can with a web page. Also you can do this for free and it will probably keep on working for decades to come.*
+
+This workshop will provide a first step writing the elements of a web page that can interactively present your data.
+
 ## Workshop files
 
-This ZIP file contains a data file needed for the workshop and example HTML files.
+This ZIP file contains a data file needed for the workshop, a copy of D3, and example HTML files.
 
 * [jsfoot.zip](jsfoot.zip)
 
@@ -37,7 +41,7 @@ This ZIP file contains a data file needed for the workshop and example HTML file
 
 [Sleepwalk](https://anders-biostat.github.io/sleepwalk/) to examine true distances in an embedding like UMAP.
 
-More bioinformatics examples: [Degust](https://degust.erc.monash.edu/degust/compare.html?code=example#/), [Glimma](https://www.bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html), [igv.js](https://igv.org/web/release/3.0.8/examples/cram-vcf.html)
+More bioinformatics examples: [Degust](https://degust.erc.monash.edu/degust/compare.html?code=example#/), [Glimma](https://www.bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/limma_edger.html), [igv.js](https://igv.org/web/release/3.0.8/examples/cram-vcf.html), [kana](https://www.kanaverse.org/kana/)
 
 
 ### Journalism
