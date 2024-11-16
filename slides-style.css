@@ -10,3 +10,8 @@
 .reveal p {
     margin-top: 0.5em;
 }
+
+.comment {
+    font-size: 75%;
+    color: #000044;
+}

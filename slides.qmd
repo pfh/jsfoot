@@ -11,16 +11,20 @@ format:
         title-prefix: "Slides"
 ---
 
+```{r echo=FALSE}
+library(r2d3)
+```
+
 ## Presenting data
 
 Say we want to present our data, or a complex idea, using interactive software.
 
 \
-We might like it:
+We might like it to:
 
-* To be easy for many people to access.
-* To be relatively easy to develop.
-* To keep working in future decades.
+* be easy for many people to access.
+* be relatively easy to develop.
+* keep working in future decades.
 
 Writing a web page scores highly on all of these.
 
@@ -36,7 +40,7 @@ Writing a web page scores highly on all of these.
 
 <div style="text-align:right">**SVG**</div> 
 <div>to create pictures in the web-page.</div>
-<div>`<svg id="plot">`</div>
+<div>`<svg id="plot">`<br>`</svg>`</div>
 
 <div style="text-align:right">**JavaScript**</div>
 <div>to run code in the web-page.</div>
@@ -75,7 +79,7 @@ Scalable Vector Graphics (SVG) is an XML-based format for vector graphics.
 
 SVG can be a stand-alone file or embedded in an HTML file.
 
-SVG in HTML is included in the DOM, and we can modify is using JavaScript.
+SVG in a web page is part of the DOM, and we can modify is using JavaScript.
 
 
 ## JavaScript
@@ -196,27 +200,31 @@ There is a vast and ever changing range of modules, frameworks, and tooling for 
 **You are allowed to ignore all this.**
 
 \
-Packages like jQuery and D3 provide convenient wrappers around built-in features such as `document.querySelectorAll()`. They may save some typing, but you should also learn how to do DOM manipulation yourself.
+Packages like jQuery and D3 provide convenient wrappers around built-in features such as `document.querySelectorAll()`. They may save some typing, but it's also fairly easy manipulate the DOM by yourself.
 
-* Today I'm used D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
+* Today I use D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
 
 Other packages and tooling are aimed at large projects and teams, such as React.
 
-* Today, instead of using React/etc, we wrote one big *idempotent* function called `update()`, and called it whenever needed.
+* Today, instead of using React/etc, we wrote one big **idempotent** function called `update()`, and called it whenever needed.
 
 
-## <img style="display:block;float:right;padding: 20px;" src="figures/idempotent-meme.jpg" width="400">"Idempotent"
+## <img style="display:block;float:right;padding-left: 20px;" src="figures/idempotent-meme.jpg" width="300">Idempotent
 
-An idempotent operation has the same result no matter how many times you run it.
-
-\
-We'll write an idempotent `update()` function that updates the DOM to look the way we want it to.
-
-D3's `join()` helps with this, it will only create DOM objects for our data if they don't already exist.
+An **idempotent** operation has the same result no matter how many times you run it.
 
 \
-This saves us from writing separate code to first create the plot and then to later update it.
+For example, our `update()` function updates the DOM to be a function of our internal **state**. 
 
+\
+The same code sets up the initial plot and, when the state changes, is used to update the highlighted region.
+
+\
+\
+
+:::{.comment}
+As a project grows we might optimize the code, but it should always act as though it was written in this simple way. D3's `.join()` is step down this path. Rather than deleting everything and starting over each time, `.join()` creates or destroys DOM objects only as needed.
+:::
 
 # Further things
 
@@ -228,19 +236,26 @@ Usually you will need a D3 [scale](https://d3js.org/d3-scale) mapping the data v
 
 Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.
 
-```javascript
-let myScale = d3.scaleLinear([0,1], [50,450]);
-myScale(0.5);        // 250
-myScale.invert(250); // 0.5
-```
-
-\
-
 * Color scales are available.
 
 * D3 can also help draw a scale [axis](https://d3js.org/d3-axis).
 
-## Learn CSS and styles
+<div>
+<svg width=500 height=50 id=example></svg>
+</div>
+
+```{d3 echo=TRUE,width=0,height=0}
+let myScale = d3.scaleLinear([0,1], [50,450]);
+myScale(0.5);        // 250
+myScale.invert(250); // 0.5
+
+d3.select("#example")
+  .append("g")
+  .attr("transform", "translate(0,10)")
+  .call(d3.axisBottom(myScale));
+```
+
+## CSS and styles
 
 Styles can be applied to HTML tags:
 
@@ -250,7 +265,7 @@ Styles can be applied to HTML tags:
 <p style="color: #ff8800">Hello</p>
 
 \
-Styles can also be applied to the whole document using CSS.
+Styles can be applied to the whole document using CSS.
 
 ```css
 <style>
@@ -261,12 +276,12 @@ p {
 ```
 
 \
-The CSS can also be put in an external file.
+The CSS can be put in an external file.
 ```html
 <link href="style.css" rel="stylesheet" />
 ```
 
-## Learn CSS and styles
+## CSS and styles
 
 I especially recommend you learn to use the modern grid layout system.
 
@@ -321,10 +336,8 @@ R can include JavaScript widgets, for example in Quarto documents or Shiny apps.
 
 * See the [`htmlwidgets`](https://www.htmlwidgets.org/) package.
 
-Jupyter notebooks can also output JavaScript.
+Jupyter notebooks can also output HTML and JavaScript.
 
 
-
-
-# Go tinker
+##
 
