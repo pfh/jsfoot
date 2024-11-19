@@ -3081,7 +3081,7 @@ to format and lay out your web-page.
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<p>Ok, let’s go make a web page.</p>
+<p>Ok, let’s go make a web page, then review what we did.</p>
 </section>
 <section id="html" class="slide level2">
 <h2>HTML</h2>
@@ -3107,28 +3107,13 @@ to format and lay out your web-page.
 <p><br>
 Note: JavaScript is completely unrelated to Java.</p>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p>Ok, let’s look at examples of using SVG and JavaScript.</p>
-</section>
-<section id="javascript-got-better" class="slide level2">
-<h2>JavaScript got better</h2>
-<p>JavaScript has a lot of history, including some mis-steps. Since we can’t just go and break millions of websites, those mis-steps can’t be erased.</p>
-<p>However we can use new features that avoid those mis-steps:</p>
-<ul>
-<li>Put <code>&quot;use strict&quot;;</code> at the top of scripts to enable strict mode.</li>
-<li><code>==</code> has complex rules for equality, so we now prefer <code>===</code>.</li>
-<li>Variable declaration with <code>var</code> have some complex problems, so now we use <code>let</code>.</li>
-<li>Writing modular code relied on an ad-hoc module system, but now there is a formal module system.</li>
-</ul>
-<p>Used tastefully, Javascript is now quite the nice language.</p>
-</section>
 <section id="modules" class="slide level2">
 <h2>Modules</h2>
-<p>Packaging code used to be done in an ad-hoc way (“UMD”, “AMD”, “CJS”).</p>
-<p>One of the new things in JavaScript is a proper module system (ESM).</p>
+<p><strong>Old way:</strong> A script file that defines a global variable.</p>
+<p><strong>New way:</strong> JavaScript now has is a proper module system, ESM, and <code>import</code> statements.</p>
 <p><strong>BUT</strong> you need a web server to use ESM modules.</p>
-<p>So:</p>
+<p><br>
+So:</p>
 <ul>
 <li>Javascript packages will often explain how to use their package the new way.</li>
 <li>At least initially, we’ll use the old way.</li>
@@ -3184,10 +3169,12 @@ Arrays and objects in Javascript are similar to <code>list</code>s and <code>dic
 </section>
 <section id="example-dataset" class="slide level2">
 <h2>Example dataset</h2>
-<p><a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Brain_Sagittal_Anterior">Raw data</a></p>
-<p><a href="https://satijalab.org/seurat/articles/spatial_vignette">Seurat analysis vignette</a></p>
 <p>Spatial RNA-Seq was performed on a section of mouse brain.</p>
-<p>Following the Seurat analysis, I wrote out some information:</p>
+<ul>
+<li><a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Brain_Sagittal_Anterior">Raw data</a></li>
+<li><a href="https://satijalab.org/seurat/articles/spatial_vignette">Seurat analysis vignette</a></li>
+</ul>
+<p>Following the Seurat analysis, I wrote out some of the results with this R code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb1-2"><a href aria-hidden="true" tabindex="-1"></a>json_script <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;let spots = &quot;</span>, <span class="fu">toJSON</span>(dataset, <span class="at">pretty=</span><span class="cn">TRUE</span>), <span class="st">&quot;;&quot;</span>)</span>
 <span id="cb1-3"><a href aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(json_script, <span class="st">&quot;spots.js&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3195,7 +3182,7 @@ Arrays and objects in Javascript are similar to <code>list</code>s and <code>dic
 <p><br>
 (I’ve written the data out this way so we can work without a web-server. <a href="https://d3js.org/d3-fetch">You can read CSV and JSON files directly if they are on a web-server.</a>)</p>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <p>Ok, let’s make an interactive plot.</p>
 </section>
@@ -3203,6 +3190,18 @@ Arrays and objects in Javascript are similar to <code>list</code>s and <code>dic
 <section id="comments" class="title-slide slide level1 center">
 <h1>Comments</h1>
 
+</section>
+<section id="javascript-got-better" class="slide level2">
+<h2>JavaScript got better</h2>
+<p>JavaScript has a lot of history, including some mis-steps. Since we can’t just go and break millions of websites, those mis-steps can’t be erased.</p>
+<p>However we can use new features that avoid those mis-steps:</p>
+<ul>
+<li>Put <code>&quot;use strict&quot;;</code> at the top of scripts to enable strict mode.</li>
+<li><code>==</code> has complex rules for equality, so we now prefer <code>===</code>.</li>
+<li>Variable declarations with <code>var</code> had some subtle pitfalls, so now we use <code>let</code>.</li>
+<li>Writing modular code relied on an ad-hoc module system, but now there is a formal module system.</li>
+</ul>
+<p>Used tastefully, Javascript is now quite the nice language.</p>
 </section>
 <section id="a-data-scientist-dabblers-perspective" class="slide level2">
 <h2>A data scientist dabbler’s perspective</h2>
@@ -3213,7 +3212,7 @@ Packages like jQuery and D3 provide convenient wrappers around built-in features
 <ul>
 <li>Today I use D3 mostly for its ability to synchronize (“join”) datasets with DOM objects.</li>
 </ul>
-<p>Other packages and tooling are aimed at large projects and teams, such as React.</p>
+<p>Other packages and tooling are aimed at larger projects, such as React.</p>
 <ul>
 <li>Today, instead of using React/etc, we wrote one big <strong>idempotent</strong> function called <code>update()</code>, and called it whenever needed.</li>
 </ul>
@@ -3239,8 +3238,8 @@ The same code sets up the initial plot and, when the state changes, is used to u
 </section>
 <section id="d3-scales" class="slide level2">
 <h2>D3 Scales</h2>
-<p>My example data already had a convenient scale.</p>
-<p>Usually you will need a D3 <a href="https://d3js.org/d3-scale">scale</a> mapping the data values to positions in a plot!</p>
+<p>My example data already had a convenient range of values.</p>
+<p>Usually you will need D3 <a href="https://d3js.org/d3-scale">scales</a> mapping the data values to x and y positions in your SVG!</p>
 <p>Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.</p>
 <ul>
 <li><p>Color scales are available.</p></li>
@@ -3260,38 +3259,46 @@ d3.select(&quot;#example&quot;)
   .attr(&quot;transform&quot;, &quot;translate(0,10)&quot;)
   .call(d3.axisBottom(myScale));</code></pre>
 <div class="cell-output-display">
-<div id="htmlwidget-ef4c364fe507c2f8d6a6" style="width:0px;height:0px;" class="r2d3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ef4c364fe507c2f8d6a6">{"x":{"data":null,"type":"NULL","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\nlet myScale = d3.scaleLinear([0,1], [50,450]);\nmyScale(0.5);        // 250\nmyScale.invert(250); // 0.5\n\nd3.select(\"#example\")\n  .append(\"g\")\n  .attr(\"transform\", \"translate(0,10)\")\n  .call(d3.axisBottom(myScale));\n};","style":null,"version":5,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-413693231602327ff1cc" style="width:0px;height:0px;" class="r2d3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-413693231602327ff1cc">{"x":{"data":null,"type":"NULL","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\nlet myScale = d3.scaleLinear([0,1], [50,450]);\nmyScale(0.5);        // 250\nmyScale.invert(250); // 0.5\n\nd3.select(\"#example\")\n  .append(\"g\")\n  .attr(\"transform\", \"translate(0,10)\")\n  .call(d3.axisBottom(myScale));\n};","style":null,"version":5,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="d3-animation" class="slide level2">
+<h2>D3 animation</h2>
+<p>D3 supports <a href="https://www.d3indepth.com/transitions/">animation</a>.</p>
+<p><br>
+Insert</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">transition</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>into your D3 code, and subsequent updates to attributes will be animated.</p>
 </section>
 <section id="css-and-styles" class="slide level2">
 <h2>CSS and styles</h2>
 <p>Styles can be applied to HTML tags:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;color: #ff8800&quot;</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;color: #ff8800&quot;</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p style="color: #ff8800">
 Hello
 </p>
 <p><br>
 Styles can be applied to the whole document using CSS.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href aria-hidden="true" tabindex="-1"></a>&lt;style<span class="op">&gt;</span></span>
-<span id="cb4-2"><a href aria-hidden="true" tabindex="-1"></a>p {</span>
-<span id="cb4-3"><a href aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ff8800</span><span class="op">;</span></span>
-<span id="cb4-4"><a href aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-5"><a href aria-hidden="true" tabindex="-1"></a>&lt;/style<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href aria-hidden="true" tabindex="-1"></a>&lt;style<span class="op">&gt;</span></span>
+<span id="cb5-2"><a href aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb5-3"><a href aria-hidden="true" tabindex="-1"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ff8800</span><span class="op">;</span></span>
+<span id="cb5-4"><a href aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-5"><a href aria-hidden="true" tabindex="-1"></a>&lt;/style<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 The CSS can be put in an external file.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> </span><span class="dt">/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="css-and-styles-1" class="slide level2">
 <h2>CSS and styles</h2>
 <p>I especially recommend you learn to use the modern grid layout system.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: grid; grid-template-columns: 1fr auto;&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-2"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
-<span id="cb6-3"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>to<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
-<span id="cb6-4"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>grid<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-5"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>layout!<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-6"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">&quot;display: grid; grid-template-columns: 1fr auto;&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>Hello<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
+<span id="cb7-3"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>to<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span> </span>
+<span id="cb7-4"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>grid<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>layout!<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <br>
 
 <div style="display: grid; grid-template-columns: 1fr auto;">
@@ -3319,10 +3326,10 @@ layout!
 <p>There are many ways to run a local web server.</p>
 <p><br>
 <a href="https://www.python.org/downloads/">Install python</a> and use:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server <span class="at">-b</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server <span class="at">-b</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 <a href="./opt/homebrew/Cellar/node/22.5.1">Install node</a> and use:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server <span class="at">-a</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server <span class="at">-a</span> 127.0.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br>
 In both cases, I specified to listen to the loopback IP address <code>127.0.0.1</code> which is accessable from your own computer but not the local network.</p>
 </section>
@@ -3334,8 +3341,9 @@ In both cases, I specified to listen to the loopback IP address <code>127.0.0.1<
 </ul>
 <p>Jupyter notebooks can also output HTML and JavaScript.</p>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
+<p>The final step of this workshop is to put your page online using GitHub <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch">Pages</a>.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

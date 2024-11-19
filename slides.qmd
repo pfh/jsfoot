@@ -61,7 +61,7 @@ Writing a web page scores highly on all of these.
 
 ##
 
-Ok, let's go make a web page.
+Ok, let's go make a web page, then review what we did.
 
 
 ## HTML
@@ -95,33 +95,16 @@ Since it runs in a web page we can do some unusual things:
 \
 Note: JavaScript is completely unrelated to Java.
 
-##
-
-Ok, let's look at examples of using SVG and JavaScript.
-
-
-## JavaScript got better
-
-JavaScript has a lot of history, including some mis-steps. Since we can't just go and break millions of websites, those mis-steps can't be erased.
-
-However we can use new features that avoid those mis-steps:
-
-* Put `"use strict";` at the top of scripts to enable strict mode.
-* `==` has complex rules for equality, so we now prefer `===`.
-* Variable declaration with `var` have some complex problems, so now we use `let`.
-* Writing modular code relied on an ad-hoc module system, but now there is a formal module system.
-
-Used tastefully, Javascript is now quite the nice language.
-
 
 ## Modules
 
-Packaging code used to be done in an ad-hoc way ("UMD", "AMD", "CJS").
+**Old way:** A script file that defines a global variable.
 
-One of the new things in JavaScript is a proper module system (ESM).
+**New way:** JavaScript now has is a proper module system, ESM, and `import` statements.
 
 **BUT** you need a web server to use ESM modules.
 
+\
 So:
 
 * Javascript packages will often explain how to use their package the new way.
@@ -167,13 +150,12 @@ Arrays and objects in Javascript are similar to `list`s and `dict`s in Python.
 
 ## Example dataset
 
-[Raw data](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Brain_Sagittal_Anterior)
-
-[Seurat analysis vignette](https://satijalab.org/seurat/articles/spatial_vignette)
-
 Spatial RNA-Seq was performed on a section of mouse brain.
 
-Following the Seurat analysis, I wrote out some information:
+* [Raw data](https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Brain_Sagittal_Anterior)
+* [Seurat analysis vignette](https://satijalab.org/seurat/articles/spatial_vignette)
+
+Following the Seurat analysis, I wrote out some of the results with this R code:
 
 ```r
 library(jsonlite)
@@ -193,6 +175,20 @@ Ok, let's make an interactive plot.
 
 # Comments
 
+## JavaScript got better
+
+JavaScript has a lot of history, including some mis-steps. Since we can't just go and break millions of websites, those mis-steps can't be erased.
+
+However we can use new features that avoid those mis-steps:
+
+* Put `"use strict";` at the top of scripts to enable strict mode.
+* `==` has complex rules for equality, so we now prefer `===`.
+* Variable declarations with `var` had some subtle pitfalls, so now we use `let`.
+* Writing modular code relied on an ad-hoc module system, but now there is a formal module system.
+
+Used tastefully, Javascript is now quite the nice language.
+
+
 ## A data scientist dabbler's perspective
 
 There is a vast and ever changing range of modules, frameworks, and tooling for JavaScript, aimed at a variety of users with differing needs.
@@ -204,7 +200,7 @@ Packages like jQuery and D3 provide convenient wrappers around built-in features
 
 * Today I use D3 mostly for its ability to synchronize ("join") datasets with DOM objects.
 
-Other packages and tooling are aimed at large projects and teams, such as React.
+Other packages and tooling are aimed at larger projects, such as React.
 
 * Today, instead of using React/etc, we wrote one big **idempotent** function called `update()`, and called it whenever needed.
 
@@ -226,13 +222,14 @@ The same code sets up the initial plot and, when the state changes, is used to u
 As a project grows we might optimize the code, but it should always act as though it was written in this simple way. D3's `.join()` is step down this path. Rather than deleting everything and starting over each time, `.join()` creates or destroys DOM objects only as needed.
 :::
 
+
 # Further things
 
 ## D3 Scales
 
-My example data already had a convenient scale. 
+My example data already had a convenient range of values. 
 
-Usually you will need a D3 [scale](https://d3js.org/d3-scale) mapping the data values to positions in a plot!
+Usually you will need D3 [scales](https://d3js.org/d3-scale) mapping the data values to x and y positions in your SVG!
 
 Scales have an inverse mapping, so you can work out where the mouse is pointing in the original data space.
 
@@ -254,6 +251,20 @@ d3.select("#example")
   .attr("transform", "translate(0,10)")
   .call(d3.axisBottom(myScale));
 ```
+
+## D3 animation
+
+D3 supports [animation](https://www.d3indepth.com/transitions/).
+
+\
+Insert
+
+```js
+    .transition()
+```
+
+into your D3 code, and subsequent updates to attributes will be animated.
+
 
 ## CSS and styles
 
@@ -339,5 +350,8 @@ R can include JavaScript widgets, for example in Quarto documents or Shiny apps.
 Jupyter notebooks can also output HTML and JavaScript.
 
 
-##
+## 
+
+The final step of this workshop is to put your page online using GitHub [Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch).
+
 

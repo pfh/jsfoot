@@ -57,7 +57,15 @@ Safari:
 
 Notice the document consists of text within tags within tags. It's a "tree".
 
-We left out some things, but the browser has filled them in, such as `<html>...</html>`, `<body>...</body>`, `<head>...</head>`.
+We left out some standard tags, which is allowed in HTML5 and the browser has filled them in:
+
+```html
+<!DOCTYPE html>
+<html> 
+    <head> ... </head> 
+    <body> ... </body> 
+</html>
+```
 
 
 ## SVG
@@ -149,7 +157,7 @@ We could also load D3 directly from a CDN with:
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.js"></script>
 ```
 
-However this adds an external dependency to our page. For our page to keep working in the long term, `jsdeliver.net` would also need to keep existing.
+However this adds an external dependency to our page. For our page to keep working in the long term, `jsdelivr.net` would also need to keep existing.
 :::
 
 ### Respond to a button click
@@ -212,9 +220,9 @@ let plot1 = d3.select("#plot1");
 plot1.selectAll("circle")
     .data(spots)
     .join("circle")
+    .attr("r", 2)
     .attr("cx", d => d.umapX)
-    .attr("cy", d => d.umapY)
-    .attr("r", 2);
+    .attr("cy", d => d.umapY);
 </script>
 ```
 
@@ -236,7 +244,8 @@ Earlier we responded to a `"click"` event on a button. Here we will respond to a
 
 ```javascript
 let plot1 = d3.select("#plot1");
-let mousePos = [0,0];
+
+let mousePos = [150,150];
 
 function update() {
     for(let spot of spots) {
