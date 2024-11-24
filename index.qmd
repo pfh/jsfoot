@@ -55,14 +55,14 @@ More bioinformatics examples: [Degust](https://degust.erc.monash.edu/degust/comp
 
 ### Journalism
 
-Amanda Cox has applied data visualization to journalism. For example [this article](https://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?searchResultPosition=9) features animations and reveals details where the mouse is pointing.
+Amanda Cox has written many interactive articles. For example [this article](https://www.nytimes.com/interactive/2016/06/10/upshot/voting-habits-turnout-partisanship.html?searchResultPosition=9) features animations and reveals details where the mouse is pointing.
 
 [The Pudding](https://pudding.cool/) features a similar style of article.
 
 
 ### My own examples
 
-[Ghost Diagrams](https://logarithmic.net/ghost.xhtml), a tiling pattern app I wrote this in 2006. It still works.
+[Ghost Diagrams](https://logarithmic.net/ghost.xhtml), a tiling pattern app. I wrote this in 2006, it still works.
 
 [Dance of the Confidence Intervals](https://logarithmic.net/2017/dance/) illustrates statistical concepts. This has been surprisingly useful for teaching!
 

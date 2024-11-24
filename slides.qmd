@@ -107,7 +107,7 @@ Note: JavaScript is completely unrelated to Java.
 \
 So:
 
-* Javascript packages will often explain how to use their package the new way.
+* JavaScript packages will often explain how to use their package the new way.
 * At least initially, we'll use the old way.
 
 
@@ -129,7 +129,7 @@ it gives you the tools you need to make it yourself.
 
 
 
-## Data in Javascript
+## Data in JavaScript
 
 Numbers: `123`, `3.14`, `6.02e23`
 
@@ -145,7 +145,7 @@ By nesting data in arrays and objects, you can build complex data structures.
 This was so useful it became a standard data format called **JSON**.
 
 \
-Arrays and objects in Javascript are similar to `list`s and `dict`s in Python.
+Arrays and objects in JavaScript are similar to `list`s and `dict`s in Python.
 
 
 ## Example dataset
@@ -186,7 +186,7 @@ However we can use new features that avoid those mis-steps:
 * Variable declarations with `var` had some subtle pitfalls, so now we use `let`.
 * Writing modular code relied on an ad-hoc module system, but now there is a formal module system.
 
-Used tastefully, Javascript is now quite the nice language.
+Used tastefully, JavaScript is now quite the nice language.
 
 
 ## A data scientist dabbler's perspective
@@ -319,7 +319,7 @@ I especially recommend you learn to use the modern grid layout system.
 Running a web-server lets you:
 
 * Use modern ESM modules.
-* Access data files without the hack of turning them into Javascript scripts.
+* Access data files without the hack of turning them into JavaScript scripts.
 
 There are many ways to run a local web server.
 
