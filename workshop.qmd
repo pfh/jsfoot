@@ -128,7 +128,7 @@ Create a new HTML page with these tags:
 
 Now we add some Javascript. We'll be using the D3 package. Make sure the file `d3.js` is in the same directory as your HTML page.
 
-D3 will give us an way to alter our document. (It's also not hard to do this without D3.)
+D3 will give us a way to alter our document. (It's also not hard to do this without D3.)
 
 ```html
 <script src="d3.js"></script>
@@ -324,7 +324,7 @@ substituting `myUsername`, `myRepo` and `myFile` as appropriate.
 
 * The highlight could be made to work for both scatter-plots.
 * A fully fleshed out interaction scheme may need to listen to multiple types of events. For example the highlight should disappear when it leaves a scatter-plot by responding to `"mouseleave"` events.
-* Usually there is scale that maps data to screen position. `d3.scale` can help with this.
+* Usually there is a scale that maps data to screen position. `d3.scale` can help with this.
 * A plot usually has a visual indication of the scale. `d3.axis` can provide this.
 
 
