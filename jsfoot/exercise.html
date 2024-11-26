@@ -1,0 +1,43 @@
+<!doctype html>
+
+<title>Spatial sequencing explorer</title>
+
+<h1>Spatial sequencing explorer</h1>
+
+
+<svg width="600" height="600" id="plot1">
+</svg>
+
+
+<script src="d3.js"></script>
+
+<script src="spots.js"></script>
+
+<script>
+"use strict";
+
+let plot1 = d3.select("#plot1");
+let mousePos = [0,0];
+
+function update() {
+    for(let spot of spots) {
+        spot.highlight = (spot.umapX-mousePos[0])**2 + (spot.umapY-mousePos[1])**2 <= 30**2; 
+    }
+    
+    plot1.selectAll("circle")
+        .data(spots)
+        .join("circle")
+        .attr("r", 2)
+        .attr("cx", d => d.umapX)
+        .attr("cy", d => d.umapY)
+        .attr("fill", d => d.highlight ? "#ff0000" : "#0000ff");
+}
+
+plot1.on("mousemove", event => {
+    mousePos = d3.pointer(event);
+    update();
+})
+
+update();
+
+</script>

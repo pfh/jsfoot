@@ -285,6 +285,8 @@ As your visualization becomes more complex, and if performance becomes a problem
 
 ### Exercise: Add a second plot
 
+The example developed above can be found in `exercise.html`. We're going to add to it.
+
 We have a microscope image of the tissue that these spots are located in. Add a second plot with this image.
 
 ```html
