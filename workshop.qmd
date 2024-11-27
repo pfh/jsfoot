@@ -29,6 +29,8 @@ Open a text editor, create a file called, `hello.html` and type the following:
 
 In your web browser, go to `File / Open file...` in the menus and open the file. Or you can enter the URL `file:///`, and navigate to your file.
 
+Windows users may need to type in `file:///` and then the full path to the file in the URL bar, using forward slashes, something like  `file:///c:/myfiles/jsfoot/hello.html`.
+
 What's all this?
 
 * `<!doctype html>` tells the browser that this page is written in HTML5, the latest standard, and that it doesn't need to emulate any quirks of older browsers.

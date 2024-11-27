@@ -15,3 +15,19 @@ This workshop will provide a first step writing the elements of a web page that 
 * Publish your page on the web.
 
 **Pre-requisites:** Some experience with another programming language will be helpful, such as Python or R.
+
+
+## Post-workshop notes, ResBaz Victoria, 27 November 2024
+
+I finished the workshop almost exactly on time, 1.5 hours, including uploading the result to GitHub and publishing it with Pages. It was a fairly small but engaged audience.
+
+Some possible improvements for next time:
+
+* Having some helpers circulating in the room.
+* Allow time and have helpers help to download and unpack the ZIP file, and open a text editor.
+* A slightly slower pace, and allowing people to catch up.
+* More explanation of the spatial RNA-Seq example data.
+* Properly running the exercise to add the second plot. I only gave people a few minutes to look at it, then launched into the solution.
+* Possibly adding another execise earlier.
+
+With these changes, the workshop would run somewhat longer. Obviously there is *a lot* more that could be covered in a longer workshop.
